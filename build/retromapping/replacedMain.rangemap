@@ -1,0 +1,245 @@
+Symbol range map extraction starting
+Processing 1 files
+processing com/example/keyloop/keyloop.java
+@|com/example/keyloop/keyloop.java|8|27|com.example.keyloop|package|com.example.keyloop|(file)
+Class Start: com.example.keyloop.keyloop
+   @|com/example/keyloop/keyloop.java|1012|1021|Minecraft|class|net.minecraft.client.Minecraft
+   @|com/example/keyloop/keyloop.java|1022|1024|mc|field|com.example.keyloop.keyloop|mc|
+   @|com/example/keyloop/keyloop.java|1027|1036|Minecraft|class|net.minecraft.client.Minecraft
+   @|com/example/keyloop/keyloop.java|1037|1049|getMinecraft|method|net.minecraft.client.Minecraft|getMinecraft|()Lnet/minecraft/client/Minecraft;
+   @|com/example/keyloop/keyloop.java|1073|1080|enabled|field|com.example.keyloop.keyloop|enabled|
+   @|com/example/keyloop/keyloop.java|1110|1122|wasShiftDown|field|com.example.keyloop.keyloop|wasShiftDown|
+   @|com/example/keyloop/keyloop.java|1150|1167|lastMoveCheckTime|field|com.example.keyloop.keyloop|lastMoveCheckTime|
+   @|com/example/keyloop/keyloop.java|1192|1197|lastX|field|com.example.keyloop.keyloop|lastX|
+   @|com/example/keyloop/keyloop.java|1222|1227|lastZ|field|com.example.keyloop.keyloop|lastZ|
+   @|com/example/keyloop/keyloop.java|1246|1251|State|class|com.example.keyloop.keyloop.State
+   @|com/example/keyloop/keyloop.java|1252|1264|currentState|field|com.example.keyloop.keyloop|currentState|
+   @|com/example/keyloop/keyloop.java|1267|1272|State|class|com.example.keyloop.keyloop.State
+   @|com/example/keyloop/keyloop.java|1273|1279|HOLD_A|field|com.example.keyloop.keyloop.State|HOLD_A
+   Enum Start: com.example.keyloop.keyloop.State
+      @|com/example/keyloop/keyloop.java|1299|1304|State|class|com.example.keyloop.keyloop.State
+      @|com/example/keyloop/keyloop.java|1315|1321|HOLD_A|field|com.example.keyloop.keyloop.State|HOLD_A
+      @|com/example/keyloop/keyloop.java|1323|1329|HOLD_W|field|com.example.keyloop.keyloop.State|HOLD_W
+      @|com/example/keyloop/keyloop.java|1331|1337|HOLD_D|field|com.example.keyloop.keyloop.State|HOLD_D
+      @|com/example/keyloop/keyloop.java|1338|1345|HOLD_W2|field|com.example.keyloop.keyloop.State|HOLD_W2
+   Enum End  : com.example.keyloop.keyloop.State
+   Method Start: init(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V
+      @|com/example/keyloop/keyloop.java|1391|1395|init|method|com.example.keyloop.keyloop|init|(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V
+      @|com/example/keyloop/keyloop.java|1396|1418|FMLInitializationEvent|class|net.minecraftforge.fml.common.event.FMLInitializationEvent
+      @|com/example/keyloop/keyloop.java|1419|1424|event|param|com.example.keyloop.keyloop|init|(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V|event|0
+      @|com/example/keyloop/keyloop.java|1436|1476|net.minecraftforge.common.MinecraftForge|class|net.minecraftforge.common.MinecraftForge
+      @|com/example/keyloop/keyloop.java|1477|1486|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|com/example/keyloop/keyloop.java|1487|1495|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+   Method End: init(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V
+   Method Start: onGuiOpen(Lnet/minecraftforge/client/event/GuiOpenEvent;)V
+      @|com/example/keyloop/keyloop.java|1547|1556|onGuiOpen|method|com.example.keyloop.keyloop|onGuiOpen|(Lnet/minecraftforge/client/event/GuiOpenEvent;)V
+      @|com/example/keyloop/keyloop.java|1557|1569|GuiOpenEvent|class|net.minecraftforge.client.event.GuiOpenEvent
+      @|com/example/keyloop/keyloop.java|1570|1575|event|param|com.example.keyloop.keyloop|onGuiOpen|(Lnet/minecraftforge/client/event/GuiOpenEvent;)V|event|0
+      @|com/example/keyloop/keyloop.java|1592|1599|enabled|field|com.example.keyloop.keyloop|enabled
+      @|com/example/keyloop/keyloop.java|1662|1667|event|param|com.example.keyloop.keyloop|onGuiOpen|(Lnet/minecraftforge/client/event/GuiOpenEvent;)V|event|0
+      @|com/example/keyloop/keyloop.java|1668|1671|gui|field|net.minecraftforge.client.event.GuiOpenEvent|gui
+      @|com/example/keyloop/keyloop.java|1683|1721|net.minecraft.client.gui.GuiIngameMenu|class|net.minecraft.client.gui.GuiIngameMenu
+      @|com/example/keyloop/keyloop.java|1737|1742|event|param|com.example.keyloop.keyloop|onGuiOpen|(Lnet/minecraftforge/client/event/GuiOpenEvent;)V|event|0
+      @|com/example/keyloop/keyloop.java|1743|1754|setCanceled|method|net.minecraftforge.fml.common.eventhandler.Event|setCanceled|(Z)V
+   Method End: onGuiOpen(Lnet/minecraftforge/client/event/GuiOpenEvent;)V
+   Method Start: onClientTick(Lnet/minecraftforge/fml/common/gameevent/TickEvent$ClientTickEvent;)V
+      @|com/example/keyloop/keyloop.java|1840|1852|onClientTick|method|com.example.keyloop.keyloop|onClientTick|(Lnet/minecraftforge/fml/common/gameevent/TickEvent$ClientTickEvent;)V
+      @|com/example/keyloop/keyloop.java|1853|1878|TickEvent.ClientTickEvent|class|net.minecraftforge.fml.common.gameevent.TickEvent.ClientTickEvent
+      @|com/example/keyloop/keyloop.java|1879|1884|event|param|com.example.keyloop.keyloop|onClientTick|(Lnet/minecraftforge/fml/common/gameevent/TickEvent$ClientTickEvent;)V|event|0
+      @|com/example/keyloop/keyloop.java|1901|1903|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|1904|1913|thePlayer|field|net.minecraft.client.Minecraft|thePlayer
+      @|com/example/keyloop/keyloop.java|1986|1994|Keyboard|class|org.lwjgl.input.Keyboard
+      @|com/example/keyloop/keyloop.java|1995|2004|isKeyDown|method|org.lwjgl.input.Keyboard|isKeyDown|(I)Z
+      @|com/example/keyloop/keyloop.java|2005|2013|Keyboard|class|org.lwjgl.input.Keyboard
+      @|com/example/keyloop/keyloop.java|2014|2024|KEY_RSHIFT|field|org.lwjgl.input.Keyboard|KEY_RSHIFT
+      @|com/example/keyloop/keyloop.java|2055|2067|wasShiftDown|field|com.example.keyloop.keyloop|wasShiftDown
+      @|com/example/keyloop/keyloop.java|2083|2090|enabled|field|com.example.keyloop.keyloop|enabled
+      @|com/example/keyloop/keyloop.java|2094|2101|enabled|field|com.example.keyloop.keyloop|enabled
+      @|com/example/keyloop/keyloop.java|2120|2127|enabled|field|com.example.keyloop.keyloop|enabled
+      @|com/example/keyloop/keyloop.java|2147|2161|releaseAllKeys|method|com.example.keyloop.keyloop|releaseAllKeys|()V
+      @|com/example/keyloop/keyloop.java|2202|2214|currentState|field|com.example.keyloop.keyloop|currentState
+      @|com/example/keyloop/keyloop.java|2217|2222|State|class|com.example.keyloop.keyloop.State
+      @|com/example/keyloop/keyloop.java|2223|2229|HOLD_A|field|com.example.keyloop.keyloop.State|HOLD_A
+      @|com/example/keyloop/keyloop.java|2247|2261|holdCurrentKey|method|com.example.keyloop.keyloop|holdCurrentKey|()V
+      @|com/example/keyloop/keyloop.java|2281|2286|lastX|field|com.example.keyloop.keyloop|lastX
+      @|com/example/keyloop/keyloop.java|2289|2291|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|2292|2301|thePlayer|field|net.minecraft.client.Minecraft|thePlayer
+      @|com/example/keyloop/keyloop.java|2302|2306|posX|field|net.minecraft.entity.Entity|posX
+      @|com/example/keyloop/keyloop.java|2324|2329|lastZ|field|com.example.keyloop.keyloop|lastZ
+      @|com/example/keyloop/keyloop.java|2332|2334|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|2335|2344|thePlayer|field|net.minecraft.client.Minecraft|thePlayer
+      @|com/example/keyloop/keyloop.java|2345|2349|posZ|field|net.minecraft.entity.Entity|posZ
+      @|com/example/keyloop/keyloop.java|2367|2384|lastMoveCheckTime|field|com.example.keyloop.keyloop|lastMoveCheckTime
+      @|com/example/keyloop/keyloop.java|2387|2393|System|class|java.lang.System
+      @|com/example/keyloop/keyloop.java|2394|2411|currentTimeMillis|method|java.lang.System|currentTimeMillis|()J
+      @|com/example/keyloop/keyloop.java|2447|2459|wasShiftDown|field|com.example.keyloop.keyloop|wasShiftDown
+      @|com/example/keyloop/keyloop.java|2489|2496|enabled|field|com.example.keyloop.keyloop|enabled
+      @|com/example/keyloop/keyloop.java|2548|2553|Mouse|class|org.lwjgl.input.Mouse
+      @|com/example/keyloop/keyloop.java|2554|2566|isButtonDown|method|org.lwjgl.input.Mouse|isButtonDown|(I)Z
+      @|com/example/keyloop/keyloop.java|2585|2590|Mouse|class|org.lwjgl.input.Mouse
+      @|com/example/keyloop/keyloop.java|2591|2595|poll|method|org.lwjgl.input.Mouse|poll|()V
+      @|com/example/keyloop/keyloop.java|2611|2616|Mouse|class|org.lwjgl.input.Mouse
+      @|com/example/keyloop/keyloop.java|2617|2621|next|method|org.lwjgl.input.Mouse|next|()Z
+      @|com/example/keyloop/keyloop.java|2641|2643|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|2644|2653|thePlayer|field|net.minecraft.client.Minecraft|thePlayer
+      @|com/example/keyloop/keyloop.java|2665|2667|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|2668|2676|theWorld|field|net.minecraft.client.Minecraft|theWorld
+      @|com/example/keyloop/keyloop.java|2688|2690|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|2691|2706|objectMouseOver|field|net.minecraft.client.Minecraft|objectMouseOver
+      @|com/example/keyloop/keyloop.java|2718|2720|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|2721|2736|objectMouseOver|field|net.minecraft.client.Minecraft|objectMouseOver
+      @|com/example/keyloop/keyloop.java|2737|2748|getBlockPos|method|net.minecraft.util.MovingObjectPosition|getBlockPos|()Lnet/minecraft/util/BlockPos;
+      @|com/example/keyloop/keyloop.java|2778|2780|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|2781|2797|playerController|field|net.minecraft.client.Minecraft|playerController
+      @|com/example/keyloop/keyloop.java|2798|2817|onPlayerDamageBlock|method|net.minecraft.client.multiplayer.PlayerControllerMP|onPlayerDamageBlock|(Lnet/minecraft/util/BlockPos;Lnet/minecraft/util/EnumFacing;)Z
+      @|com/example/keyloop/keyloop.java|2818|2820|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|2821|2836|objectMouseOver|field|net.minecraft.client.Minecraft|objectMouseOver
+      @|com/example/keyloop/keyloop.java|2837|2848|getBlockPos|method|net.minecraft.util.MovingObjectPosition|getBlockPos|()Lnet/minecraft/util/BlockPos;
+      @|com/example/keyloop/keyloop.java|2852|2854|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|2855|2870|objectMouseOver|field|net.minecraft.client.Minecraft|objectMouseOver
+      @|com/example/keyloop/keyloop.java|2871|2878|sideHit|field|net.minecraft.util.MovingObjectPosition|sideHit
+      @|com/example/keyloop/keyloop.java|2897|2899|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|2900|2909|thePlayer|field|net.minecraft.client.Minecraft|thePlayer
+      @|com/example/keyloop/keyloop.java|2910|2919|swingItem|method|net.minecraft.entity.EntityLivingBase|swingItem|()V
+      @|com/example/keyloop/keyloop.java|2994|3000|System|class|java.lang.System
+      @|com/example/keyloop/keyloop.java|3001|3018|currentTimeMillis|method|java.lang.System|currentTimeMillis|()J
+      @|com/example/keyloop/keyloop.java|3040|3057|lastMoveCheckTime|field|com.example.keyloop.keyloop|lastMoveCheckTime
+      @|com/example/keyloop/keyloop.java|3117|3119|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|3120|3129|thePlayer|field|net.minecraft.client.Minecraft|thePlayer
+      @|com/example/keyloop/keyloop.java|3130|3134|posX|field|net.minecraft.entity.Entity|posX
+      @|com/example/keyloop/keyloop.java|3166|3168|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|3169|3178|thePlayer|field|net.minecraft.client.Minecraft|thePlayer
+      @|com/example/keyloop/keyloop.java|3179|3183|posZ|field|net.minecraft.entity.Entity|posZ
+      @|com/example/keyloop/keyloop.java|3201|3205|Math|class|java.lang.Math
+      @|com/example/keyloop/keyloop.java|3206|3209|abs|method|java.lang.Math|abs|(D)D
+      @|com/example/keyloop/keyloop.java|3221|3226|lastX|field|com.example.keyloop.keyloop|lastX
+      @|com/example/keyloop/keyloop.java|3238|3242|Math|class|java.lang.Math
+      @|com/example/keyloop/keyloop.java|3243|3246|abs|method|java.lang.Math|abs|(D)D
+      @|com/example/keyloop/keyloop.java|3258|3263|lastZ|field|com.example.keyloop.keyloop|lastZ
+      @|com/example/keyloop/keyloop.java|3333|3350|releaseCurrentKey|method|com.example.keyloop.keyloop|releaseCurrentKey|()V
+      @|com/example/keyloop/keyloop.java|3370|3379|nextState|method|com.example.keyloop.keyloop|nextState|()V
+      @|com/example/keyloop/keyloop.java|3399|3413|holdCurrentKey|method|com.example.keyloop.keyloop|holdCurrentKey|()V
+      @|com/example/keyloop/keyloop.java|3443|3448|lastX|field|com.example.keyloop.keyloop|lastX
+      @|com/example/keyloop/keyloop.java|3473|3478|lastZ|field|com.example.keyloop.keyloop|lastZ
+      @|com/example/keyloop/keyloop.java|3503|3520|lastMoveCheckTime|field|com.example.keyloop.keyloop|lastMoveCheckTime
+   Method End: onClientTick(Lnet/minecraftforge/fml/common/gameevent/TickEvent$ClientTickEvent;)V
+   Method Start: onChatMessage(Lnet/minecraftforge/client/event/ClientChatReceivedEvent;)V
+      @|com/example/keyloop/keyloop.java|3581|3594|onChatMessage|method|com.example.keyloop.keyloop|onChatMessage|(Lnet/minecraftforge/client/event/ClientChatReceivedEvent;)V
+      @|com/example/keyloop/keyloop.java|3595|3618|ClientChatReceivedEvent|class|net.minecraftforge.client.event.ClientChatReceivedEvent
+      @|com/example/keyloop/keyloop.java|3619|3624|event|param|com.example.keyloop.keyloop|onChatMessage|(Lnet/minecraftforge/client/event/ClientChatReceivedEvent;)V|event|0
+      @|com/example/keyloop/keyloop.java|3636|3642|String|class|java.lang.String
+      @|com/example/keyloop/keyloop.java|3653|3658|event|param|com.example.keyloop.keyloop|onChatMessage|(Lnet/minecraftforge/client/event/ClientChatReceivedEvent;)V|event|0
+      @|com/example/keyloop/keyloop.java|3659|3666|message|field|net.minecraftforge.client.event.ClientChatReceivedEvent|message
+      @|com/example/keyloop/keyloop.java|3667|3685|getUnformattedText|method|net.minecraft.util.IChatComponent|getUnformattedText|()Ljava/lang/String;
+      @|com/example/keyloop/keyloop.java|3688|3699|toLowerCase|method|java.lang.String|toLowerCase|()Ljava/lang/String;
+      @|com/example/keyloop/keyloop.java|3723|3731|contains|method|java.lang.String|contains|(Ljava/lang/CharSequence;)Z
+      @|com/example/keyloop/keyloop.java|3753|3761|contains|method|java.lang.String|contains|(Ljava/lang/CharSequence;)Z
+      @|com/example/keyloop/keyloop.java|3781|3789|contains|method|java.lang.String|contains|(Ljava/lang/CharSequence;)Z
+      @|com/example/keyloop/keyloop.java|3810|3818|contains|method|java.lang.String|contains|(Ljava/lang/CharSequence;)Z
+      @|com/example/keyloop/keyloop.java|3843|3850|enabled|field|com.example.keyloop.keyloop|enabled
+      @|com/example/keyloop/keyloop.java|3872|3886|releaseAllKeys|method|com.example.keyloop.keyloop|releaseAllKeys|()V
+      @|com/example/keyloop/keyloop.java|3902|3904|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|3905|3914|thePlayer|field|net.minecraft.client.Minecraft|thePlayer
+      @|com/example/keyloop/keyloop.java|3915|3929|addChatMessage|method|net.minecraft.command.ICommandSender|addChatMessage|(Lnet/minecraft/util/IChatComponent;)V
+      @|com/example/keyloop/keyloop.java|3934|3951|ChatComponentText|class|net.minecraft.util.ChatComponentText
+   Method End: onChatMessage(Lnet/minecraftforge/client/event/ClientChatReceivedEvent;)V
+   Method Start: holdCurrentKey()V
+      @|com/example/keyloop/keyloop.java|4050|4064|holdCurrentKey|method|com.example.keyloop.keyloop|holdCurrentKey|()V
+      @|com/example/keyloop/keyloop.java|4077|4087|KeyBinding|class|net.minecraft.client.settings.KeyBinding
+      @|com/example/keyloop/keyloop.java|4094|4114|getCurrentKeyBinding|method|com.example.keyloop.keyloop|getCurrentKeyBinding|()Lnet/minecraft/client/settings/KeyBinding;
+      @|com/example/keyloop/keyloop.java|4143|4153|KeyBinding|class|net.minecraft.client.settings.KeyBinding
+      @|com/example/keyloop/keyloop.java|4154|4169|setKeyBindState|method|net.minecraft.client.settings.KeyBinding|setKeyBindState|(IZ)V
+      @|com/example/keyloop/keyloop.java|4174|4184|getKeyCode|method|net.minecraft.client.settings.KeyBinding|getKeyCode|()I
+   Method End: holdCurrentKey()V
+   Method Start: releaseCurrentKey()V
+      @|com/example/keyloop/keyloop.java|4219|4236|releaseCurrentKey|method|com.example.keyloop.keyloop|releaseCurrentKey|()V
+      @|com/example/keyloop/keyloop.java|4249|4259|KeyBinding|class|net.minecraft.client.settings.KeyBinding
+      @|com/example/keyloop/keyloop.java|4266|4286|getCurrentKeyBinding|method|com.example.keyloop.keyloop|getCurrentKeyBinding|()Lnet/minecraft/client/settings/KeyBinding;
+      @|com/example/keyloop/keyloop.java|4315|4325|KeyBinding|class|net.minecraft.client.settings.KeyBinding
+      @|com/example/keyloop/keyloop.java|4326|4341|setKeyBindState|method|net.minecraft.client.settings.KeyBinding|setKeyBindState|(IZ)V
+      @|com/example/keyloop/keyloop.java|4346|4356|getKeyCode|method|net.minecraft.client.settings.KeyBinding|getKeyCode|()I
+   Method End: releaseCurrentKey()V
+   Method Start: releaseAllKeys()V
+      @|com/example/keyloop/keyloop.java|4392|4406|releaseAllKeys|method|com.example.keyloop.keyloop|releaseAllKeys|()V
+      @|com/example/keyloop/keyloop.java|4419|4429|KeyBinding|class|net.minecraft.client.settings.KeyBinding
+      @|com/example/keyloop/keyloop.java|4430|4445|setKeyBindState|method|net.minecraft.client.settings.KeyBinding|setKeyBindState|(IZ)V
+      @|com/example/keyloop/keyloop.java|4446|4448|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|4449|4461|gameSettings|field|net.minecraft.client.Minecraft|gameSettings
+      @|com/example/keyloop/keyloop.java|4462|4473|keyBindLeft|field|net.minecraft.client.settings.GameSettings|keyBindLeft
+      @|com/example/keyloop/keyloop.java|4474|4484|getKeyCode|method|net.minecraft.client.settings.KeyBinding|getKeyCode|()I
+      @|com/example/keyloop/keyloop.java|4504|4514|KeyBinding|class|net.minecraft.client.settings.KeyBinding
+      @|com/example/keyloop/keyloop.java|4515|4530|setKeyBindState|method|net.minecraft.client.settings.KeyBinding|setKeyBindState|(IZ)V
+      @|com/example/keyloop/keyloop.java|4531|4533|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|4534|4546|gameSettings|field|net.minecraft.client.Minecraft|gameSettings
+      @|com/example/keyloop/keyloop.java|4547|4561|keyBindForward|field|net.minecraft.client.settings.GameSettings|keyBindForward
+      @|com/example/keyloop/keyloop.java|4562|4572|getKeyCode|method|net.minecraft.client.settings.KeyBinding|getKeyCode|()I
+      @|com/example/keyloop/keyloop.java|4592|4602|KeyBinding|class|net.minecraft.client.settings.KeyBinding
+      @|com/example/keyloop/keyloop.java|4603|4618|setKeyBindState|method|net.minecraft.client.settings.KeyBinding|setKeyBindState|(IZ)V
+      @|com/example/keyloop/keyloop.java|4619|4621|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|4622|4634|gameSettings|field|net.minecraft.client.Minecraft|gameSettings
+      @|com/example/keyloop/keyloop.java|4635|4647|keyBindRight|field|net.minecraft.client.settings.GameSettings|keyBindRight
+      @|com/example/keyloop/keyloop.java|4648|4658|getKeyCode|method|net.minecraft.client.settings.KeyBinding|getKeyCode|()I
+   Method End: releaseAllKeys()V
+   Method Start: nextState()V
+      @|com/example/keyloop/keyloop.java|4694|4703|nextState|method|com.example.keyloop.keyloop|nextState|()V
+      @|com/example/keyloop/keyloop.java|4720|4732|currentState|field|com.example.keyloop.keyloop|currentState
+      @|com/example/keyloop/keyloop.java|4736|4741|State|class|com.example.keyloop.keyloop.State
+      @|com/example/keyloop/keyloop.java|4742|4748|HOLD_A|field|com.example.keyloop.keyloop.State|HOLD_A
+      @|com/example/keyloop/keyloop.java|4750|4762|currentState|field|com.example.keyloop.keyloop|currentState
+      @|com/example/keyloop/keyloop.java|4765|4770|State|class|com.example.keyloop.keyloop.State
+      @|com/example/keyloop/keyloop.java|4771|4777|HOLD_W|field|com.example.keyloop.keyloop.State|HOLD_W
+      @|com/example/keyloop/keyloop.java|4796|4808|currentState|field|com.example.keyloop.keyloop|currentState
+      @|com/example/keyloop/keyloop.java|4812|4817|State|class|com.example.keyloop.keyloop.State
+      @|com/example/keyloop/keyloop.java|4818|4824|HOLD_W|field|com.example.keyloop.keyloop.State|HOLD_W
+      @|com/example/keyloop/keyloop.java|4826|4838|currentState|field|com.example.keyloop.keyloop|currentState
+      @|com/example/keyloop/keyloop.java|4841|4846|State|class|com.example.keyloop.keyloop.State
+      @|com/example/keyloop/keyloop.java|4847|4853|HOLD_D|field|com.example.keyloop.keyloop.State|HOLD_D
+      @|com/example/keyloop/keyloop.java|4872|4884|currentState|field|com.example.keyloop.keyloop|currentState
+      @|com/example/keyloop/keyloop.java|4888|4893|State|class|com.example.keyloop.keyloop.State
+      @|com/example/keyloop/keyloop.java|4894|4900|HOLD_D|field|com.example.keyloop.keyloop.State|HOLD_D
+      @|com/example/keyloop/keyloop.java|4916|4928|currentState|field|com.example.keyloop.keyloop|currentState
+      @|com/example/keyloop/keyloop.java|4931|4936|State|class|com.example.keyloop.keyloop.State
+      @|com/example/keyloop/keyloop.java|4937|4944|HOLD_W2|field|com.example.keyloop.keyloop.State|HOLD_W2
+      @|com/example/keyloop/keyloop.java|4965|4977|currentState|field|com.example.keyloop.keyloop|currentState
+      @|com/example/keyloop/keyloop.java|4981|4986|State|class|com.example.keyloop.keyloop.State
+      @|com/example/keyloop/keyloop.java|4987|4994|HOLD_W2|field|com.example.keyloop.keyloop.State|HOLD_W2
+      @|com/example/keyloop/keyloop.java|5010|5022|currentState|field|com.example.keyloop.keyloop|currentState
+      @|com/example/keyloop/keyloop.java|5025|5030|State|class|com.example.keyloop.keyloop.State
+      @|com/example/keyloop/keyloop.java|5031|5037|HOLD_A|field|com.example.keyloop.keyloop.State|HOLD_A
+      @|com/example/keyloop/keyloop.java|5107|5109|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|5110|5119|thePlayer|field|net.minecraft.client.Minecraft|thePlayer
+      @|com/example/keyloop/keyloop.java|5143|5145|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|5146|5155|thePlayer|field|net.minecraft.client.Minecraft|thePlayer
+      @|com/example/keyloop/keyloop.java|5156|5167|rotationYaw|field|net.minecraft.entity.Entity|rotationYaw
+      @|com/example/keyloop/keyloop.java|5185|5187|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|5188|5197|thePlayer|field|net.minecraft.client.Minecraft|thePlayer
+      @|com/example/keyloop/keyloop.java|5198|5211|rotationPitch|field|net.minecraft.entity.Entity|rotationPitch
+   Method End: nextState()V
+   Method Start: getCurrentKeyBinding()Lnet/minecraft/client/settings/KeyBinding;
+      @|com/example/keyloop/keyloop.java|5260|5280|getCurrentKeyBinding|method|com.example.keyloop.keyloop|getCurrentKeyBinding|()Lnet/minecraft/client/settings/KeyBinding;
+      @|com/example/keyloop/keyloop.java|5249|5259|KeyBinding|class|net.minecraft.client.settings.KeyBinding
+      @|com/example/keyloop/keyloop.java|5297|5309|currentState|field|com.example.keyloop.keyloop|currentState
+      @|com/example/keyloop/keyloop.java|5313|5318|State|class|com.example.keyloop.keyloop.State
+      @|com/example/keyloop/keyloop.java|5319|5325|HOLD_A|field|com.example.keyloop.keyloop.State|HOLD_A
+      @|com/example/keyloop/keyloop.java|5334|5336|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|5337|5349|gameSettings|field|net.minecraft.client.Minecraft|gameSettings
+      @|com/example/keyloop/keyloop.java|5350|5361|keyBindLeft|field|net.minecraft.client.settings.GameSettings|keyBindLeft
+      @|com/example/keyloop/keyloop.java|5375|5387|currentState|field|com.example.keyloop.keyloop|currentState
+      @|com/example/keyloop/keyloop.java|5391|5396|State|class|com.example.keyloop.keyloop.State
+      @|com/example/keyloop/keyloop.java|5397|5403|HOLD_W|field|com.example.keyloop.keyloop.State|HOLD_W
+      @|com/example/keyloop/keyloop.java|5407|5419|currentState|field|com.example.keyloop.keyloop|currentState
+      @|com/example/keyloop/keyloop.java|5423|5428|State|class|com.example.keyloop.keyloop.State
+      @|com/example/keyloop/keyloop.java|5429|5436|HOLD_W2|field|com.example.keyloop.keyloop.State|HOLD_W2
+      @|com/example/keyloop/keyloop.java|5445|5447|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|5448|5460|gameSettings|field|net.minecraft.client.Minecraft|gameSettings
+      @|com/example/keyloop/keyloop.java|5461|5475|keyBindForward|field|net.minecraft.client.settings.GameSettings|keyBindForward
+      @|com/example/keyloop/keyloop.java|5489|5501|currentState|field|com.example.keyloop.keyloop|currentState
+      @|com/example/keyloop/keyloop.java|5505|5510|State|class|com.example.keyloop.keyloop.State
+      @|com/example/keyloop/keyloop.java|5511|5517|HOLD_D|field|com.example.keyloop.keyloop.State|HOLD_D
+      @|com/example/keyloop/keyloop.java|5526|5528|mc|field|com.example.keyloop.keyloop|mc
+      @|com/example/keyloop/keyloop.java|5529|5541|gameSettings|field|net.minecraft.client.Minecraft|gameSettings
+      @|com/example/keyloop/keyloop.java|5542|5554|keyBindRight|field|net.minecraft.client.settings.GameSettings|keyBindRight
+   Method End: getCurrentKeyBinding()Lnet/minecraft/client/settings/KeyBinding;
+Class End  : com.example.keyloop.keyloop
+endProcessing com/example/keyloop/keyloop.java
+
