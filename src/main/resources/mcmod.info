@@ -1,13 +1,13 @@
 [
 {
   "modid": "Farmhelper",
-  "name": "KeyLooping", //It is what this macro basically does
-  "description": "Farm Macro basically", //You can change the description
+  "name": "KeyLooping",
+  "description": "Farm Macro basically",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["The names of authors"], //Not giving our names for preventing us getting banned lol
+  "authorList": ["The names of authors"],
   "credits": "names of users or resources who helped the mod be made", 
   "logoFile": "",
   "screenshots": [],

@@ -12,20 +12,25 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
-@Mod(modid = "keyloopmod", name = "Key Loop Mod", version = "1.0", clientSideOnly = true)
+@Mod(modid = "keyloopmod", name = "Key Loop Mod", version = "1.0", clientSideOnly = true)        //The name is a bit simple I know but it is what it is
 public class keyloop {
     private final Minecraft mc = Minecraft.getMinecraft();
     private boolean enabled = false;
     private boolean wasShiftDown = false;
+    private boolean wasGDown  = false;
 
     private long lastMoveCheckTime = 0;
     private double lastX = 0;
     private double lastZ = 0;
     private int d_counter = 0;
+    private float targetYaw = 0;
+    private float targetPitch = 0;
+    private boolean awaitingInput = false;
+
 
     private LoopState currentState = LoopState.HOLD_A;
 
-    private enum LoopState {
+    private enum LoopState {                          //Enums here
         HOLD_A, HOLD_W, HOLD_D, HOLD_W2,HOLD_S
     }
 
@@ -35,6 +40,7 @@ public class keyloop {
     }
 
     @SubscribeEvent
+    //Disabling the ESC GUI menu when ALT+TAB or when minecraft is in background
     public void onGuiOpen(GuiOpenEvent event) {
         if (!enabled) return;
         if (event.gui instanceof net.minecraft.client.gui.GuiIngameMenu) {
@@ -43,10 +49,13 @@ public class keyloop {
     }
 
     @SubscribeEvent
+    //Assigning the button for our mod to start,you can change it to any button you want but I preffered right shift for this
     public void onClientTick(TickEvent.ClientTickEvent event) {
         if (mc.thePlayer == null) return;
-
-        // Shift toggle
+        boolean GuiOpen = Keyboard.isKeyDown(Keyboard.KEY_G);
+        if (GuiOpen) {
+            mc.displayGuiScreen(new YawPitchGui(this));
+        }
         boolean isShiftDown = Keyboard.isKeyDown(Keyboard.KEY_RSHIFT);
         if (isShiftDown && !wasShiftDown) {
             enabled = !enabled;
@@ -58,13 +67,15 @@ public class keyloop {
                 lastX = mc.thePlayer.posX;
                 lastZ = mc.thePlayer.posZ;
                 lastMoveCheckTime = System.currentTimeMillis();
+                mc.thePlayer.rotationYaw = targetYaw;
+                mc.thePlayer.rotationPitch = targetPitch;
             }
         }
         wasShiftDown = isShiftDown;
 
         if (!enabled) return;
 
-        // Mouse left click automation
+        //Always swinging the item(mouse left click hold)
         if (!Mouse.isButtonDown(0)) {
             Mouse.poll();
             Mouse.next();
@@ -73,10 +84,9 @@ public class keyloop {
                 mc.thePlayer.swingItem();
             }
         }
-
-        // Main A-W-D-W loop
+        //our movement loop depends on if the player doesnt change places for the past 1 second, if the case is true we switch to next button(A-W-D-W)
         long now = System.currentTimeMillis();
-        if (now - lastMoveCheckTime >= 1000) { // 1 second
+        if (now - lastMoveCheckTime >= 1000) {
             double currentX = mc.thePlayer.posX;
             double currentZ = mc.thePlayer.posZ;
             if (Math.abs(currentX - lastX) < 0.01 && Math.abs(currentZ - lastZ) < 0.01) {
@@ -95,25 +105,26 @@ public class keyloop {
     }
 
     @SubscribeEvent
+    //This place made for if someone visit your island or server resets and you got send to hub,the mod stops itself and lower the chance of you getting banned
     public void onChatMessage(ClientChatReceivedEvent event) {
         String message = event.message.getUnformattedText().toLowerCase();
         if (message.contains("reboot") || message.contains("void") || message.contains("limbo") || message.contains("visit")) {
             enabled = false;
             releaseAllKeys();
-            mc.thePlayer.addChatMessage(new ChatComponentText("§c[KeyLoop] Otomasyon durduruldu(chat(özel kelime görüldü)"));
+            mc.thePlayer.addChatMessage(new ChatComponentText("(Stopped the operation,special word detected!)"));
         }
     }
-
+    //This are holds our current button
     private void holdCurrentKey() {
         KeyBinding key = getCurrentKeyBinding();
         if (key != null) KeyBinding.setKeyBindState(key.getKeyCode(), true);
     }
-
+    //This are releases our current button
     private void releaseCurrentKey() {
         KeyBinding key = getCurrentKeyBinding();
         if (key != null) KeyBinding.setKeyBindState(key.getKeyCode(), false);
     }
-
+    //This are works when we close the mod,or a special case happens
     private void releaseAllKeys() {
         KeyBinding.setKeyBindState(mc.gameSettings.keyBindLeft.getKeyCode(), false);
         KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), false);
@@ -121,7 +132,7 @@ public class keyloop {
         KeyBinding.setKeyBindState(mc.gameSettings.keyBindBack.getKeyCode(), false);
     }
 
-    private void nextState() {
+    private void nextState() {                        //You can use if else if cases here but using switch is more understandable and reorganizable
         switch (currentState) {
             case HOLD_A:
                 currentState = LoopState.HOLD_W;
@@ -146,14 +157,13 @@ public class keyloop {
                 break;
         }
 
-        // Yön ayarlaması
         if (mc.thePlayer != null) {
-            mc.thePlayer.rotationYaw = 0;
-            mc.thePlayer.rotationPitch = -58;
+            mc.thePlayer.rotationYaw = targetYaw;
+            mc.thePlayer.rotationPitch = targetPitch;
         }
     }
 
-
+    //We assign our buttons here
     private KeyBinding getCurrentKeyBinding() {
         if (currentState == LoopState.HOLD_A) return mc.gameSettings.keyBindLeft;
         if (currentState == LoopState.HOLD_W || currentState == LoopState.HOLD_W2) return mc.gameSettings.keyBindForward;
@@ -161,4 +171,10 @@ public class keyloop {
         if (currentState == LoopState.HOLD_S) return mc.gameSettings.keyBindBack;
         return null;
     }
+    public void setTargetLook(float yaw, float pitch) {
+        this.targetYaw = yaw;
+        this.targetPitch = pitch;
+        this.awaitingInput = false;
+    }
+
 }

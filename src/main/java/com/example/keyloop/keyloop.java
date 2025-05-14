@@ -17,14 +17,17 @@ public class keyloop {
     private final Minecraft mc = Minecraft.getMinecraft();
     private boolean enabled = false;
     private boolean wasShiftDown = false;
+    private boolean wasGDown  = false;
 
     private long lastMoveCheckTime = 0;
     private double lastX = 0;
     private double lastZ = 0;
     private int d_counter = 0;
+    private float targetYaw = 0;
+    private float targetPitch = 0;
 
     private LoopState currentState = LoopState.HOLD_A;
-    
+
     private enum LoopState {                          //Enums here
         HOLD_A, HOLD_W, HOLD_D, HOLD_W2,HOLD_S
     }
@@ -36,7 +39,7 @@ public class keyloop {
 
     @SubscribeEvent
     //Disabling the ESC GUI menu when ALT+TAB or when minecraft is in background
-    public void onGuiOpen(GuiOpenEvent event) { 
+    public void onGuiOpen(GuiOpenEvent event) {
         if (!enabled) return;
         if (event.gui instanceof net.minecraft.client.gui.GuiIngameMenu) {
             event.setCanceled(true);
@@ -47,7 +50,10 @@ public class keyloop {
     //Assigning the button for our mod to start,you can change it to any button you want but I preffered right shift for this
     public void onClientTick(TickEvent.ClientTickEvent event) {
         if (mc.thePlayer == null) return;
-
+        boolean GuiOpen = Keyboard.isKeyDown(Keyboard.KEY_G);
+        if (GuiOpen && !wasGDown) {
+            mc.displayGuiScreen(new YawPitchGui(this));
+        }
         boolean isShiftDown = Keyboard.isKeyDown(Keyboard.KEY_RSHIFT);
         if (isShiftDown && !wasShiftDown) {
             enabled = !enabled;
@@ -59,12 +65,14 @@ public class keyloop {
                 lastX = mc.thePlayer.posX;
                 lastZ = mc.thePlayer.posZ;
                 lastMoveCheckTime = System.currentTimeMillis();
+                mc.thePlayer.rotationYaw = targetYaw;
+                mc.thePlayer.rotationPitch = targetPitch;
             }
         }
         wasShiftDown = isShiftDown;
 
         if (!enabled) return;
-        
+
         //Always swinging the item(mouse left click hold)
         if (!Mouse.isButtonDown(0)) {
             Mouse.poll();
@@ -76,7 +84,7 @@ public class keyloop {
         }
         //our movement loop depends on if the player doesnt change places for the past 1 second, if the case is true we switch to next button(A-W-D-W)
         long now = System.currentTimeMillis();
-        if (now - lastMoveCheckTime >= 1000) { 
+        if (now - lastMoveCheckTime >= 1000) {
             double currentX = mc.thePlayer.posX;
             double currentZ = mc.thePlayer.posZ;
             if (Math.abs(currentX - lastX) < 0.01 && Math.abs(currentZ - lastZ) < 0.01) {
@@ -147,9 +155,9 @@ public class keyloop {
                 break;
         }
 
-        if (mc.thePlayer != null) {            // You need to reassign the coordinates for your own farm, mine suits with 0 to -58
-            mc.thePlayer.rotationYaw = 0;
-            mc.thePlayer.rotationPitch = -58;
+        if (mc.thePlayer != null) {
+            mc.thePlayer.rotationYaw = targetYaw;
+            mc.thePlayer.rotationPitch = targetPitch;
         }
     }
 
@@ -161,4 +169,9 @@ public class keyloop {
         if (currentState == LoopState.HOLD_S) return mc.gameSettings.keyBindBack;
         return null;
     }
+    public void setTargetLook(float yaw, float pitch) {
+        this.targetYaw = yaw;
+        this.targetPitch = pitch;
+    }
+
 }
