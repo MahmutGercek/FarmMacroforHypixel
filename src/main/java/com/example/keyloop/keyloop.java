@@ -24,6 +24,9 @@ public class keyloop {
     private double lastZ = 0;
     private int d_counter = 0;
 
+    private float targetYaw = 0;
+    private float targetPitch = -58;
+
     private LoopState currentState = LoopState.HOLD_A;
 
     private enum LoopState {
@@ -32,6 +35,7 @@ public class keyloop {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
+        INSTANCE = this;
         net.minecraftforge.common.MinecraftForge.EVENT_BUS.register(this);
     }
 
@@ -58,14 +62,13 @@ public class keyloop {
                 lastX = mc.thePlayer.posX;
                 lastZ = mc.thePlayer.posZ;
                 lastMoveCheckTime = System.currentTimeMillis();
-                shouldTapWOnce = true; // <<< ilk kez W'ye bir kere basılacak
+                shouldTapWOnce = true;
             }
         }
         wasShiftDown = isShiftDown;
 
         if (!enabled) return;
 
-        // tap W once
         if (shouldTapWOnce) {
             shouldTapWOnce = false;
             KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), true);
@@ -78,7 +81,6 @@ public class keyloop {
             }).start();
         }
 
-        // left click
         if (!Mouse.isButtonDown(0)) {
             Mouse.poll();
             Mouse.next();
@@ -104,14 +106,14 @@ public class keyloop {
                 lastZ = currentZ;
                 lastMoveCheckTime = now;
             }
-
         }
     }
 
     @SubscribeEvent
     public void onChatMessage(ClientChatReceivedEvent event) {
         String message = event.message.getUnformattedText().toLowerCase();
-        if (message.contains("reboot") || message.contains("void") || message.contains("limbo") || message.contains("visit") || message.contains("evacuate")) {
+        if (message.contains("reboot") || message.contains("void") || message.contains("limbo")
+                || message.contains("visit") || message.contains("evacuate")) {
             enabled = false;
             releaseAllKeys();
             mc.thePlayer.addChatMessage(new ChatComponentText("(Stopped the operation, special word detected!)"));
@@ -164,8 +166,8 @@ public class keyloop {
         }
 
         if (mc.thePlayer != null) {
-            mc.thePlayer.rotationYaw = 0;
-            mc.thePlayer.rotationPitch = -58;
+            mc.thePlayer.rotationYaw = targetYaw;
+            mc.thePlayer.rotationPitch = targetPitch;
         }
     }
 
@@ -176,5 +178,10 @@ public class keyloop {
         if (currentState == LoopState.HOLD_D) return mc.gameSettings.keyBindRight;
         if (currentState == LoopState.HOLD_S) return mc.gameSettings.keyBindBack;
         return null;
+    }
+
+    public void setTargetLook(float yaw, float pitch) {
+        this.targetYaw = yaw;
+        this.targetPitch = pitch;
     }
 }

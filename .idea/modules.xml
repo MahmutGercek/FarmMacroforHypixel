@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KeyLoopMod.api.iml" filepath="$PROJECT_DIR$/.idea/modules/KeyLoopMod.api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KeyLoopMod.main.iml" filepath="$PROJECT_DIR$/.idea/modules/KeyLoopMod.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KeyLoopMod.test.iml" filepath="$PROJECT_DIR$/.idea/modules/KeyLoopMod.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mod.api.iml" filepath="$PROJECT_DIR$/.idea/modules/mod.api.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mod.main.iml" filepath="$PROJECT_DIR$/.idea/modules/mod.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mod.test.iml" filepath="$PROJECT_DIR$/.idea/modules/mod.test.iml" />
