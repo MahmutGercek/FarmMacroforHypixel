@@ -1,13 +1,13 @@
 [
 {
   "modid": "Farmhelper",
-  "name": "KeyLooping", 
-  "description": "Farm Macro basically", 
+  "name": "KeyLooping",
+  "description": "Farm Macro basically",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["RealFT, NeoonR"],
+  "authorList": ["The names of authors"],
   "credits": "names of users or resources who helped the mod be made", 
   "logoFile": "",
   "screenshots": [],
