@@ -5,6 +5,7 @@ import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.client.event.GuiOpenEvent;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -14,29 +15,29 @@ import org.lwjgl.input.Mouse;
 
 @Mod(modid = "keyloopmod", name = "Key Loop Mod", version = "1.0", clientSideOnly = true)
 public class keyloop {
+
     private final Minecraft mc = Minecraft.getMinecraft();
     private boolean enabled = false;
-    private boolean wasShiftDown = false;
-    private boolean shouldTapWOnce = false;
+    private boolean wasshiftDown = false;
 
     private long lastMoveCheckTime = 0;
     private double lastX = 0;
     private double lastZ = 0;
     private int d_counter = 0;
 
-    private float targetYaw = 0;
-    private float targetPitch = -58;
+    private long awStartTime = 0;
 
     private LoopState currentState = LoopState.HOLD_A;
+    private float targetYaw;
+    private float targetPitch;
 
     private enum LoopState {
-        HOLD_A, HOLD_W, HOLD_D, HOLD_W2, HOLD_S, HOLD_W_AFTER_S
+        HOLD_A, HOLD_W, HOLD_D, HOLD_W2, HOLD_S, HOLD_AW
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        INSTANCE = this;
-        net.minecraftforge.common.MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(this);
     }
 
     @SubscribeEvent
@@ -49,51 +50,64 @@ public class keyloop {
 
     @SubscribeEvent
     public void onClientTick(TickEvent.ClientTickEvent event) {
-        if (mc.thePlayer == null) return;
+        if (event.phase != TickEvent.Phase.END) return;
+        if (mc.thePlayer == null || mc.currentScreen != null) return;
 
-        boolean isShiftDown = Keyboard.isKeyDown(Keyboard.KEY_RSHIFT);
-        if (isShiftDown && !wasShiftDown) {
+        boolean GuiOpen = Keyboard.isKeyDown(Keyboard.KEY_O);
+        if (GuiOpen) {
+            mc.displayGuiScreen(new YawPitchGui(this));
+        }
+
+        boolean isKeyDown = Keyboard.isKeyDown(Keyboard.KEY_RSHIFT);
+        if (isKeyDown && !wasshiftDown) {
             enabled = !enabled;
             if (!enabled) {
                 releaseAllKeys();
             } else {
+                mc.thePlayer.rotationYaw = targetYaw;
+                mc.thePlayer.rotationPitch = targetPitch;
                 currentState = LoopState.HOLD_A;
                 holdCurrentKey();
                 lastX = mc.thePlayer.posX;
                 lastZ = mc.thePlayer.posZ;
                 lastMoveCheckTime = System.currentTimeMillis();
-                shouldTapWOnce = true;
             }
         }
-        wasShiftDown = isShiftDown;
+        wasshiftDown = isKeyDown;
 
         if (!enabled) return;
-
-        if (shouldTapWOnce) {
-            shouldTapWOnce = false;
-            KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), true);
-
-            new Thread(() -> {
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException ignored) {}
-                KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), false);
-            }).start();
-        }
 
         if (!Mouse.isButtonDown(0)) {
             Mouse.poll();
             Mouse.next();
-            if (mc.thePlayer != null && mc.theWorld != null && mc.objectMouseOver != null && mc.objectMouseOver.getBlockPos() != null) {
+            if (mc.objectMouseOver != null && mc.objectMouseOver.getBlockPos() != null) {
                 mc.playerController.onPlayerDamageBlock(mc.objectMouseOver.getBlockPos(), mc.objectMouseOver.sideHit);
                 mc.thePlayer.swingItem();
             }
+        }
+
+        // HOLD_AW durumunu ayrı işle
+        if (currentState == LoopState.HOLD_AW) {
+            KeyBinding.setKeyBindState(mc.gameSettings.keyBindLeft.getKeyCode(), true);
+            KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), true);
+
+            long now = System.currentTimeMillis();
+            if (now - awStartTime >= 1000) {
+                releaseAllKeys();
+                nextState();
+                holdCurrentKey();
+                lastX = mc.thePlayer.posX;
+                lastZ = mc.thePlayer.posZ;
+                lastMoveCheckTime = now;
+            }
+            return;
         }
 
         long now = System.currentTimeMillis();
         if (now - lastMoveCheckTime >= 1000) {
             double currentX = mc.thePlayer.posX;
             double currentZ = mc.thePlayer.posZ;
+
             if (Math.abs(currentX - lastX) < 0.01 && Math.abs(currentZ - lastZ) < 0.01) {
                 releaseCurrentKey();
                 nextState();
@@ -112,8 +126,7 @@ public class keyloop {
     @SubscribeEvent
     public void onChatMessage(ClientChatReceivedEvent event) {
         String message = event.message.getUnformattedText().toLowerCase();
-        if (message.contains("reboot") || message.contains("void") || message.contains("limbo")
-                || message.contains("visit") || message.contains("evacuate")) {
+        if (message.contains("reboot") || message.contains("void") || message.contains("limbo") || message.contains("visit") || message.contains("evacuate")) {
             enabled = false;
             releaseAllKeys();
             mc.thePlayer.addChatMessage(new ChatComponentText("(Stopped the operation, special word detected!)"));
@@ -158,26 +171,27 @@ public class keyloop {
                 currentState = LoopState.HOLD_A;
                 break;
             case HOLD_S:
-                currentState = LoopState.HOLD_W_AFTER_S;
-                break;
-            case HOLD_W_AFTER_S:
+                currentState = LoopState.HOLD_AW;
+                awStartTime = System.currentTimeMillis();
+                return;
+            case HOLD_AW:
                 currentState = LoopState.HOLD_A;
                 break;
         }
 
-        if (mc.thePlayer != null) {
-            mc.thePlayer.rotationYaw = targetYaw;
-            mc.thePlayer.rotationPitch = targetPitch;
-        }
+        mc.thePlayer.rotationYaw = targetYaw;
+        mc.thePlayer.rotationPitch = targetPitch;
     }
 
     private KeyBinding getCurrentKeyBinding() {
-        if (currentState == LoopState.HOLD_A) return mc.gameSettings.keyBindLeft;
-        if (currentState == LoopState.HOLD_W || currentState == LoopState.HOLD_W2 || currentState == LoopState.HOLD_W_AFTER_S)
-            return mc.gameSettings.keyBindForward;
-        if (currentState == LoopState.HOLD_D) return mc.gameSettings.keyBindRight;
-        if (currentState == LoopState.HOLD_S) return mc.gameSettings.keyBindBack;
-        return null;
+        switch (currentState) {
+            case HOLD_A: return mc.gameSettings.keyBindLeft;
+            case HOLD_W: return mc.gameSettings.keyBindForward;
+            case HOLD_W2: return mc.gameSettings.keyBindForward;
+            case HOLD_D: return mc.gameSettings.keyBindRight;
+            case HOLD_S: return mc.gameSettings.keyBindBack;
+            default: return null;
+        }
     }
 
     public void setTargetLook(float yaw, float pitch) {

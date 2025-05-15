@@ -3,6 +3,7 @@ package com.example.keyloop;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
+import org.lwjgl.input.Keyboard;
 
 import java.io.IOException;
 
@@ -10,7 +11,7 @@ public class YawPitchGui extends GuiScreen {
     private GuiTextField yawField;
     private GuiTextField pitchField;
     private GuiButton confirmButton;
-
+    private String errmsg = "";
     private final keyloop parent;
 
     public YawPitchGui(keyloop parent) {
@@ -38,17 +39,21 @@ public class YawPitchGui extends GuiScreen {
             try {
                 float yaw = Float.parseFloat(yawField.getText());
                 float pitch = Float.parseFloat(pitchField.getText());
-
                 parent.setTargetLook(yaw, pitch);
-                mc.displayGuiScreen(null); // Close GUI
+                mc.displayGuiScreen(null);
             } catch (NumberFormatException e) {
-                // Invalid input
+                errmsg = "Enter a valid number";
             }
         }
     }
 
     @Override
     protected void keyTyped(char typedChar, int keyCode) throws IOException {
+        if (keyCode == Keyboard.KEY_ESCAPE) {
+            this.mc.displayGuiScreen(null);
+            return;
+        }
+        super.keyTyped(typedChar, keyCode);
         yawField.textboxKeyTyped(typedChar, keyCode);
         pitchField.textboxKeyTyped(typedChar, keyCode);
     }
@@ -67,5 +72,11 @@ public class YawPitchGui extends GuiScreen {
         yawField.drawTextBox();
         pitchField.drawTextBox();
         super.drawScreen(mouseX, mouseY, partialTicks);
+        if (!errmsg.isEmpty()) {
+            GuiButton confirmbutton = this.buttonList.get(0);
+            int msgX = confirmbutton.xPosition + confirmbutton.width / 2;
+            int msgY = confirmbutton.yPosition + confirmbutton.height + 5;
+            drawCenteredString(this.fontRendererObj, errmsg, msgX, msgY, 0xFF5555);
+        }
     }
 }
