@@ -26,8 +26,8 @@ public class YawPitchGui extends GuiScreen {
         pitchField = new GuiTextField(1, fontRendererObj, centerX - 50, centerY, 100, 20);
 
         yawField.setFocused(true);
-        yawField.setText("");
-        pitchField.setText("");
+        yawField.setText("Yaw");
+        pitchField.setText("Pitch");
 
         buttonList.add(confirmButton = new GuiButton(2, centerX - 30, centerY + 40, 60, 20, "Confirm"));
     }
