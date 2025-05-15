@@ -24,9 +24,9 @@ public class keyloop {
     private int d_counter = 0;
 
     private LoopState currentState = LoopState.HOLD_A;
-    
-    private enum LoopState {                          //Enums here
-        HOLD_A, HOLD_W, HOLD_D, HOLD_W2,HOLD_S
+
+    private enum LoopState {
+        HOLD_A, HOLD_W, HOLD_D, HOLD_W2, HOLD_S, HOLD_W_AFTER_S
     }
 
     @Mod.EventHandler
@@ -122,7 +122,7 @@ public class keyloop {
         KeyBinding.setKeyBindState(mc.gameSettings.keyBindBack.getKeyCode(), false);
     }
 
-    private void nextState() {                        //You can use if else if cases here but using switch is more understandable and reorganizable
+    private void nextState() {
         switch (currentState) {
             case HOLD_A:
                 currentState = LoopState.HOLD_W;
@@ -143,6 +143,9 @@ public class keyloop {
                 currentState = LoopState.HOLD_A;
                 break;
             case HOLD_S:
+                currentState = LoopState.HOLD_W_AFTER_S;
+                break;
+            case HOLD_W_AFTER_S:
                 currentState = LoopState.HOLD_A;
                 break;
         }
@@ -156,7 +159,8 @@ public class keyloop {
     //We assign our buttons here
     private KeyBinding getCurrentKeyBinding() {
         if (currentState == LoopState.HOLD_A) return mc.gameSettings.keyBindLeft;
-        if (currentState == LoopState.HOLD_W || currentState == LoopState.HOLD_W2) return mc.gameSettings.keyBindForward;
+        if (currentState == LoopState.HOLD_W || currentState == LoopState.HOLD_W2 || currentState == LoopState.HOLD_W_AFTER_S)
+            return mc.gameSettings.keyBindForward;
         if (currentState == LoopState.HOLD_D) return mc.gameSettings.keyBindRight;
         if (currentState == LoopState.HOLD_S) return mc.gameSettings.keyBindBack;
         return null;
