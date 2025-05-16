@@ -27,8 +27,9 @@ public class YawPitchGui extends GuiScreen {
         pitchField = new GuiTextField(1, fontRendererObj, centerX - 50, centerY, 100, 20);
 
         yawField.setFocused(true);
-        yawField.setText("Yaw");
-        pitchField.setText("Pitch");
+        pitchField.setFocused(false);
+        yawField.setText("");
+        pitchField.setText("");
 
         buttonList.add(confirmButton = new GuiButton(2, centerX - 30, centerY + 40, 60, 20, "Confirm"));
     }
@@ -52,10 +53,24 @@ public class YawPitchGui extends GuiScreen {
         if (keyCode == Keyboard.KEY_ESCAPE) {
             this.mc.displayGuiScreen(null);
             return;
+            }
+        if (keyCode == Keyboard.KEY_TAB) {
+            if (yawField.isFocused()) {
+                yawField.setFocused(false);
+                pitchField.setFocused(true);
+            } else {
+                pitchField.setFocused(false);
+                yawField.setFocused(true);
+            }
+            return;
         }
+
+            if (yawField.isFocused()) {
+                yawField.textboxKeyTyped(typedChar, keyCode);
+            } else if (pitchField.isFocused()) {
+                pitchField.textboxKeyTyped(typedChar, keyCode);
+            }
         super.keyTyped(typedChar, keyCode);
-        yawField.textboxKeyTyped(typedChar, keyCode);
-        pitchField.textboxKeyTyped(typedChar, keyCode);
     }
 
     @Override
@@ -71,6 +86,12 @@ public class YawPitchGui extends GuiScreen {
         drawCenteredString(fontRendererObj, "Enter Yaw and Pitch", width / 2, height / 2 - 60, 0xFFFFFF);
         yawField.drawTextBox();
         pitchField.drawTextBox();
+        if (yawField.getText().isEmpty()) {
+            drawString(fontRendererObj, "Yaw", yawField.xPosition + 4, yawField.yPosition + 6, 0xAAAAAA);
+        }
+        if (pitchField.getText().isEmpty()) {
+            drawString(fontRendererObj, "Pitch", pitchField.xPosition + 4, pitchField.yPosition + 6, 0xAAAAAA);
+        }
         super.drawScreen(mouseX, mouseY, partialTicks);
         if (!errmsg.isEmpty()) {
             GuiButton confirmbutton = this.buttonList.get(0);

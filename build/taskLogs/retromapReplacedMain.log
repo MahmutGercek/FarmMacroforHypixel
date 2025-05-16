@@ -33402,49 +33402,69 @@ Rename field net/minecraft/client/gui/GuiScreen/fontRendererObj[696,711]::fontRe
 Rename class net/minecraft/client/gui/GuiTextField[775,787]::GuiTextField->GuiTextField
 Rename field net/minecraft/client/gui/GuiScreen/fontRendererObj[791,806]::fontRendererObj->field_146289_q
 Rename method net/minecraft/client/gui/GuiTextField/setFocused (Z)V[858,868]::setFocused->func_146195_b
-Rename method net/minecraft/client/gui/GuiTextField/setText (Ljava/lang/String;)V[896,903]::setText->func_146180_a
+Rename method net/minecraft/client/gui/GuiTextField/setFocused (Z)V[898,908]::setFocused->func_146195_b
 Rename method net/minecraft/client/gui/GuiTextField/setText (Ljava/lang/String;)V[937,944]::setText->func_146180_a
-Rename field net/minecraft/client/gui/GuiScreen/buttonList[970,980]::buttonList->field_146292_n
+Rename method net/minecraft/client/gui/GuiTextField/setText (Ljava/lang/String;)V[975,982]::setText->func_146180_a
+Rename field net/minecraft/client/gui/GuiScreen/buttonList[1003,1013]::buttonList->field_146292_n
 [method, java/util/Collection/add, (Ljava/lang/Object;)Z]
-Rename class net/minecraft/client/gui/GuiButton[1009,1018]::GuiButton->GuiButton
-Rename method net/minecraft/client/gui/GuiScreen/actionPerformed (Lnet/minecraft/client/gui/GuiButton;)V[1111,1126]::actionPerformed->func_146284_a
-Rename class net/minecraft/client/gui/GuiButton[1125,1134]::GuiButton->GuiButton
+Rename class net/minecraft/client/gui/GuiButton[1042,1051]::GuiButton->GuiButton
+Rename method net/minecraft/client/gui/GuiScreen/actionPerformed (Lnet/minecraft/client/gui/GuiButton;)V[1144,1159]::actionPerformed->func_146284_a
+Rename class net/minecraft/client/gui/GuiButton[1158,1167]::GuiButton->GuiButton
 [method, java/lang/Float/parseFloat, (Ljava/lang/String;)F]
-Rename method net/minecraft/client/gui/GuiTextField/getText ()Ljava/lang/String;[1275,1282]::getText->func_146179_b
+Rename method net/minecraft/client/gui/GuiTextField/getText ()Ljava/lang/String;[1308,1315]::getText->func_146179_b
 [method, java/lang/Float/parseFloat, (Ljava/lang/String;)F]
-Rename method net/minecraft/client/gui/GuiTextField/getText ()Ljava/lang/String;[1351,1358]::getText->func_146179_b
+Rename method net/minecraft/client/gui/GuiTextField/getText ()Ljava/lang/String;[1384,1391]::getText->func_146179_b
 [method, com/example/keyloop/keyloop/setTargetLook, (FF)V]
-Rename field net/minecraft/client/gui/GuiScreen/mc[1435,1437]::mc->field_146297_k
-Rename method net/minecraft/client/Minecraft/displayGuiScreen (Lnet/minecraft/client/gui/GuiScreen;)V[1450,1466]::displayGuiScreen->func_147108_a
-Rename method net/minecraft/client/gui/GuiScreen/keyTyped (CI)V[1632,1640]::keyTyped->func_73869_a
-Rename field net/minecraft/client/gui/GuiScreen/mc[1758,1760]::mc->field_146297_k
-Rename method net/minecraft/client/Minecraft/displayGuiScreen (Lnet/minecraft/client/gui/GuiScreen;)V[1773,1789]::displayGuiScreen->func_147108_a
-Rename method net/minecraft/client/gui/GuiScreen/keyTyped (CI)V[1838,1846]::keyTyped->func_73869_a
-Rename method net/minecraft/client/gui/GuiTextField/textboxKeyTyped (CI)Z[1889,1904]::textboxKeyTyped->func_146201_a
-Rename method net/minecraft/client/gui/GuiTextField/textboxKeyTyped (CI)Z[1943,1958]::textboxKeyTyped->func_146201_a
-Rename method net/minecraft/client/gui/GuiScreen/mouseClicked (III)V[2018,2030]::mouseClicked->func_73864_a
-Rename method net/minecraft/client/gui/GuiTextField/mouseClicked (III)V[2110,2122]::mouseClicked->func_146192_a
-Rename method net/minecraft/client/gui/GuiTextField/mouseClicked (III)V[2173,2185]::mouseClicked->func_146192_a
-Rename method net/minecraft/client/gui/GuiScreen/mouseClicked (III)V[2231,2243]::mouseClicked->func_73864_a
-Rename method net/minecraft/client/gui/GuiScreen/drawScreen (IIF)V[2311,2321]::drawScreen->func_73863_a
-Rename method net/minecraft/client/gui/GuiScreen/drawDefaultBackground ()V[2378,2399]::drawDefaultBackground->func_146276_q_
-Rename method net/minecraft/client/gui/Gui/drawCenteredString (Lnet/minecraft/client/gui/FontRenderer;Ljava/lang/String;III)V[2404,2422]::drawCenteredString->func_73732_a
-Rename field net/minecraft/client/gui/GuiScreen/fontRendererObj[2417,2432]::fontRendererObj->field_146289_q
-Rename field net/minecraft/client/gui/GuiScreen/width[2456,2461]::width->field_146294_l
-Rename field net/minecraft/client/gui/GuiScreen/height[2476,2482]::height->field_146295_m
-Rename method net/minecraft/client/gui/GuiTextField/drawTextBox ()V[2529,2540]::drawTextBox->func_146194_f
-Rename method net/minecraft/client/gui/GuiTextField/drawTextBox ()V[2565,2576]::drawTextBox->func_146194_f
-Rename method net/minecraft/client/gui/GuiScreen/drawScreen (IIF)V[2596,2606]::drawScreen->func_73863_a
+Rename field net/minecraft/client/gui/GuiScreen/mc[1468,1470]::mc->field_146297_k
+Rename method net/minecraft/client/Minecraft/displayGuiScreen (Lnet/minecraft/client/gui/GuiScreen;)V[1483,1499]::displayGuiScreen->func_147108_a
+Rename method net/minecraft/client/gui/GuiScreen/keyTyped (CI)V[1665,1673]::keyTyped->func_73869_a
+Rename field net/minecraft/client/gui/GuiScreen/mc[1791,1793]::mc->field_146297_k
+Rename method net/minecraft/client/Minecraft/displayGuiScreen (Lnet/minecraft/client/gui/GuiScreen;)V[1806,1822]::displayGuiScreen->func_147108_a
+Rename method net/minecraft/client/gui/GuiTextField/isFocused ()Z[1929,1938]::isFocused->func_146206_l
+Rename method net/minecraft/client/gui/GuiTextField/setFocused (Z)V[1973,1983]::setFocused->func_146195_b
+Rename method net/minecraft/client/gui/GuiTextField/setFocused (Z)V[2022,2032]::setFocused->func_146195_b
+Rename method net/minecraft/client/gui/GuiTextField/setFocused (Z)V[2091,2101]::setFocused->func_146195_b
+Rename method net/minecraft/client/gui/GuiTextField/setFocused (Z)V[2138,2148]::setFocused->func_146195_b
+Rename method net/minecraft/client/gui/GuiTextField/isFocused ()Z[2229,2238]::isFocused->func_146206_l
+Rename method net/minecraft/client/gui/GuiTextField/textboxKeyTyped (CI)Z[2273,2288]::textboxKeyTyped->func_146201_a
+Rename method net/minecraft/client/gui/GuiTextField/isFocused ()Z[2342,2351]::isFocused->func_146206_l
+Rename method net/minecraft/client/gui/GuiTextField/textboxKeyTyped (CI)Z[2388,2403]::textboxKeyTyped->func_146201_a
+Rename method net/minecraft/client/gui/GuiScreen/keyTyped (CI)V[2451,2459]::keyTyped->func_73869_a
+Rename method net/minecraft/client/gui/GuiScreen/mouseClicked (III)V[2525,2537]::mouseClicked->func_73864_a
+Rename method net/minecraft/client/gui/GuiTextField/mouseClicked (III)V[2617,2629]::mouseClicked->func_146192_a
+Rename method net/minecraft/client/gui/GuiTextField/mouseClicked (III)V[2680,2692]::mouseClicked->func_146192_a
+Rename method net/minecraft/client/gui/GuiScreen/mouseClicked (III)V[2738,2750]::mouseClicked->func_73864_a
+Rename method net/minecraft/client/gui/GuiScreen/drawScreen (IIF)V[2818,2828]::drawScreen->func_73863_a
+Rename method net/minecraft/client/gui/GuiScreen/drawDefaultBackground ()V[2885,2906]::drawDefaultBackground->func_146276_q_
+Rename method net/minecraft/client/gui/Gui/drawCenteredString (Lnet/minecraft/client/gui/FontRenderer;Ljava/lang/String;III)V[2911,2929]::drawCenteredString->func_73732_a
+Rename field net/minecraft/client/gui/GuiScreen/fontRendererObj[2924,2939]::fontRendererObj->field_146289_q
+Rename field net/minecraft/client/gui/GuiScreen/width[2963,2968]::width->field_146294_l
+Rename field net/minecraft/client/gui/GuiScreen/height[2983,2989]::height->field_146295_m
+Rename method net/minecraft/client/gui/GuiTextField/drawTextBox ()V[3036,3047]::drawTextBox->func_146194_f
+Rename method net/minecraft/client/gui/GuiTextField/drawTextBox ()V[3072,3083]::drawTextBox->func_146194_f
+Rename method net/minecraft/client/gui/GuiTextField/getText ()Ljava/lang/String;[3110,3117]::getText->func_146179_b
 [method, java/lang/String/isEmpty, ()Z]
-Rename class net/minecraft/client/gui/GuiButton[2685,2694]::GuiButton->GuiButton
-Rename field net/minecraft/client/gui/GuiScreen/buttonList[2716,2726]::buttonList->field_146292_n
+Rename method net/minecraft/client/gui/Gui/drawString (Lnet/minecraft/client/gui/FontRenderer;Ljava/lang/String;III)V[3151,3161]::drawString->func_73731_b
+Rename field net/minecraft/client/gui/GuiScreen/fontRendererObj[3164,3179]::fontRendererObj->field_146289_q
+Rename field net/minecraft/client/gui/GuiTextField/xPosition[3196,3205]::xPosition->field_146209_f
+Rename field net/minecraft/client/gui/GuiTextField/yPosition[3225,3234]::yPosition->field_146210_g
+Rename method net/minecraft/client/gui/GuiTextField/getText ()Ljava/lang/String;[3289,3296]::getText->func_146179_b
+[method, java/lang/String/isEmpty, ()Z]
+Rename method net/minecraft/client/gui/Gui/drawString (Lnet/minecraft/client/gui/FontRenderer;Ljava/lang/String;III)V[3330,3340]::drawString->func_73731_b
+Rename field net/minecraft/client/gui/GuiScreen/fontRendererObj[3343,3358]::fontRendererObj->field_146289_q
+Rename field net/minecraft/client/gui/GuiTextField/xPosition[3379,3388]::xPosition->field_146209_f
+Rename field net/minecraft/client/gui/GuiTextField/yPosition[3410,3419]::yPosition->field_146210_g
+Rename method net/minecraft/client/gui/GuiScreen/drawScreen (IIF)V[3465,3475]::drawScreen->func_73863_a
+[method, java/lang/String/isEmpty, ()Z]
+Rename class net/minecraft/client/gui/GuiButton[3554,3563]::GuiButton->GuiButton
+Rename field net/minecraft/client/gui/GuiScreen/buttonList[3585,3595]::buttonList->field_146292_n
 [method, java/util/List/get, (I)Ljava/lang/Object;]
-Rename field net/minecraft/client/gui/GuiButton/xPosition[2776,2785]::xPosition->field_146128_h
-Rename field net/minecraft/client/gui/GuiButton/width[2807,2812]::width->field_146120_f
-Rename field net/minecraft/client/gui/GuiButton/yPosition[2864,2873]::yPosition->field_146129_i
-Rename field net/minecraft/client/gui/GuiButton/height[2895,2901]::height->field_146121_g
-Rename method net/minecraft/client/gui/Gui/drawCenteredString (Lnet/minecraft/client/gui/FontRenderer;Ljava/lang/String;III)V[2927,2945]::drawCenteredString->func_73732_a
-Rename field net/minecraft/client/gui/GuiScreen/fontRendererObj[2945,2960]::fontRendererObj->field_146289_q
+Rename field net/minecraft/client/gui/GuiButton/xPosition[3645,3654]::xPosition->field_146128_h
+Rename field net/minecraft/client/gui/GuiButton/width[3676,3681]::width->field_146120_f
+Rename field net/minecraft/client/gui/GuiButton/yPosition[3733,3742]::yPosition->field_146129_i
+Rename field net/minecraft/client/gui/GuiButton/height[3764,3770]::height->field_146121_g
+Rename method net/minecraft/client/gui/Gui/drawCenteredString (Lnet/minecraft/client/gui/FontRenderer;Ljava/lang/String;III)V[3796,3814]::drawCenteredString->func_73732_a
+Rename field net/minecraft/client/gui/GuiScreen/fontRendererObj[3814,3829]::fontRendererObj->field_146289_q
 Import: net.minecraft.client.gui.GuiButton
 Import: net.minecraft.client.gui.GuiScreen
 Import: net.minecraft.client.gui.GuiTextField
@@ -33465,7 +33485,7 @@ No rename for method net/minecraftforge/fml/common/eventhandler/EventBus/registe
 [method, com/example/keyloop/keyloop/onGuiOpen, (Lnet/minecraftforge/client/event/GuiOpenEvent;)V]
 No rename for class net/minecraftforge/client/event/GuiOpenEvent
 No rename for field net/minecraftforge/client/event/GuiOpenEvent/gui
-Rename class net/minecraft/client/gui/GuiIngameMenu[1517,1555]::net.minecraft.client.gui.GuiIngameMenu->net.minecraft.client.gui.GuiIngameMenu
+Rename class net/minecraft/client/gui/GuiIngameMenu[1507,1545]::net.minecraft.client.gui.GuiIngameMenu->net.minecraft.client.gui.GuiIngameMenu
 New Key: class net
 [method, net/minecraftforge/fml/common/eventhandler/Event/setCanceled, (Z)V]
 No rename for method net/minecraftforge/fml/common/eventhandler/Event/setCanceled (Z)V
@@ -33474,72 +33494,56 @@ No rename for class net/minecraftforge/fml/common/gameevent/TickEvent/ClientTick
 No rename for field net/minecraftforge/fml/common/gameevent/TickEvent/phase
 No rename for class net/minecraftforge/fml/common/gameevent/TickEvent/Phase
 No rename for field net/minecraftforge/fml/common/gameevent/TickEvent/Phase/END
-Rename field net/minecraft/client/Minecraft/thePlayer[1768,1777]::thePlayer->field_71439_g
-Rename field net/minecraft/client/Minecraft/currentScreen[1796,1809]::currentScreen->field_71462_r
+Rename field net/minecraft/client/Minecraft/thePlayer[1758,1767]::thePlayer->field_71439_g
+Rename field net/minecraft/client/Minecraft/currentScreen[1786,1799]::currentScreen->field_71462_r
 [method, org/lwjgl/input/Keyboard/isKeyDown, (I)Z]
-Rename method net/minecraft/client/Minecraft/displayGuiScreen (Lnet/minecraft/client/gui/GuiScreen;)V[1928,1944]::displayGuiScreen->func_147108_a
+Rename method net/minecraft/client/Minecraft/displayGuiScreen (Lnet/minecraft/client/gui/GuiScreen;)V[1918,1934]::displayGuiScreen->func_147108_a
 [method, org/lwjgl/input/Keyboard/isKeyDown, (I)Z]
 [method, com/example/keyloop/keyloop/releaseAllKeys, ()V]
-Rename field net/minecraft/client/Minecraft/thePlayer[2222,2231]::thePlayer->field_71439_g
-Rename field net/minecraft/entity/Entity/rotationYaw[2236,2247]::rotationYaw->field_70177_z
-Rename field net/minecraft/client/Minecraft/thePlayer[2282,2291]::thePlayer->field_71439_g
-Rename field net/minecraft/entity/Entity/rotationPitch[2296,2309]::rotationPitch->field_70125_A
+Rename field net/minecraft/client/Minecraft/thePlayer[2212,2221]::thePlayer->field_71439_g
+Rename field net/minecraft/entity/Entity/rotationYaw[2226,2237]::rotationYaw->field_70177_z
+Rename field net/minecraft/client/Minecraft/thePlayer[2272,2281]::thePlayer->field_71439_g
+Rename field net/minecraft/entity/Entity/rotationPitch[2286,2299]::rotationPitch->field_70125_A
 [method, com/example/keyloop/keyloop/holdCurrentKey, ()V]
-Rename field net/minecraft/client/Minecraft/thePlayer[2435,2444]::thePlayer->field_71439_g
-Rename field net/minecraft/entity/Entity/posX[2449,2453]::posX->field_70165_t
-Rename field net/minecraft/client/Minecraft/thePlayer[2491,2500]::thePlayer->field_71439_g
-Rename field net/minecraft/entity/Entity/posZ[2505,2509]::posZ->field_70161_v
+Rename field net/minecraft/client/Minecraft/thePlayer[2425,2434]::thePlayer->field_71439_g
+Rename field net/minecraft/entity/Entity/posX[2439,2443]::posX->field_70165_t
+Rename field net/minecraft/client/Minecraft/thePlayer[2481,2490]::thePlayer->field_71439_g
+Rename field net/minecraft/entity/Entity/posZ[2495,2499]::posZ->field_70161_v
 [method, java/lang/System/currentTimeMillis, ()J]
 [method, org/lwjgl/input/Mouse/isButtonDown, (I)Z]
 [method, org/lwjgl/input/Mouse/poll, ()V]
 [method, org/lwjgl/input/Mouse/next, ()Z]
-Rename field net/minecraft/client/Minecraft/objectMouseOver[2783,2798]::objectMouseOver->field_71476_x
-Rename field net/minecraft/client/Minecraft/objectMouseOver[2811,2826]::objectMouseOver->field_71476_x
-Rename method net/minecraft/util/MovingObjectPosition/getBlockPos ()Lnet/minecraft/util/BlockPos;[2825,2836]::getBlockPos->func_178782_a
-Rename field net/minecraft/client/Minecraft/playerController[2871,2887]::playerController->field_71442_b
-Rename method net/minecraft/client/multiplayer/PlayerControllerMP/onPlayerDamageBlock (Lnet/minecraft/util/BlockPos;Lnet/minecraft/util/EnumFacing;)Z[2885,2904]::onPlayerDamageBlock->func_180512_c
-Rename field net/minecraft/client/Minecraft/objectMouseOver[2902,2917]::objectMouseOver->field_71476_x
-Rename method net/minecraft/util/MovingObjectPosition/getBlockPos ()Lnet/minecraft/util/BlockPos;[2916,2927]::getBlockPos->func_178782_a
-Rename field net/minecraft/client/Minecraft/objectMouseOver[2936,2951]::objectMouseOver->field_71476_x
-Rename field net/minecraft/util/MovingObjectPosition/sideHit[2950,2957]::sideHit->field_178784_b
-Rename field net/minecraft/client/Minecraft/thePlayer[2986,2995]::thePlayer->field_71439_g
-Rename method net/minecraft/entity/EntityLivingBase/swingItem ()V[3000,3009]::swingItem->func_71038_i
-Rename class net/minecraft/client/settings/KeyBinding[3140,3150]::KeyBinding->KeyBinding
-Rename method net/minecraft/client/settings/KeyBinding/setKeyBindState (IZ)V[3151,3166]::setKeyBindState->func_74510_a
-Rename field net/minecraft/client/Minecraft/gameSettings[3167,3179]::gameSettings->field_71474_y
-Rename field net/minecraft/client/settings/GameSettings/keyBindLeft[3181,3192]::keyBindLeft->field_74370_x
-Rename method net/minecraft/client/settings/KeyBinding/getKeyCode ()I[3195,3205]::getKeyCode->func_151463_i
-Rename class net/minecraft/client/settings/KeyBinding[3231,3241]::KeyBinding->KeyBinding
-Rename method net/minecraft/client/settings/KeyBinding/setKeyBindState (IZ)V[3242,3257]::setKeyBindState->func_74510_a
-Rename field net/minecraft/client/Minecraft/gameSettings[3258,3270]::gameSettings->field_71474_y
-Rename field net/minecraft/client/settings/GameSettings/keyBindForward[3272,3286]::keyBindForward->field_74351_w
-Rename method net/minecraft/client/settings/KeyBinding/getKeyCode ()I[3286,3296]::getKeyCode->func_151463_i
+Rename field net/minecraft/client/Minecraft/objectMouseOver[2773,2788]::objectMouseOver->field_71476_x
+Rename field net/minecraft/client/Minecraft/objectMouseOver[2801,2816]::objectMouseOver->field_71476_x
+Rename method net/minecraft/util/MovingObjectPosition/getBlockPos ()Lnet/minecraft/util/BlockPos;[2815,2826]::getBlockPos->func_178782_a
+Rename field net/minecraft/client/Minecraft/playerController[2861,2877]::playerController->field_71442_b
+Rename method net/minecraft/client/multiplayer/PlayerControllerMP/onPlayerDamageBlock (Lnet/minecraft/util/BlockPos;Lnet/minecraft/util/EnumFacing;)Z[2875,2894]::onPlayerDamageBlock->func_180512_c
+Rename field net/minecraft/client/Minecraft/objectMouseOver[2892,2907]::objectMouseOver->field_71476_x
+Rename method net/minecraft/util/MovingObjectPosition/getBlockPos ()Lnet/minecraft/util/BlockPos;[2906,2917]::getBlockPos->func_178782_a
+Rename field net/minecraft/client/Minecraft/objectMouseOver[2926,2941]::objectMouseOver->field_71476_x
+Rename field net/minecraft/util/MovingObjectPosition/sideHit[2940,2947]::sideHit->field_178784_b
+Rename field net/minecraft/client/Minecraft/thePlayer[2976,2985]::thePlayer->field_71439_g
+Rename method net/minecraft/entity/EntityLivingBase/swingItem ()V[2990,2999]::swingItem->func_71038_i
 [method, java/lang/System/currentTimeMillis, ()J]
-[method, com/example/keyloop/keyloop/releaseAllKeys, ()V]
-[method, com/example/keyloop/keyloop/nextState, ()V]
-[method, com/example/keyloop/keyloop/holdCurrentKey, ()V]
-Rename field net/minecraft/client/Minecraft/thePlayer[3531,3540]::thePlayer->field_71439_g
-Rename field net/minecraft/entity/Entity/posX[3545,3549]::posX->field_70165_t
-Rename field net/minecraft/client/Minecraft/thePlayer[3587,3596]::thePlayer->field_71439_g
-Rename field net/minecraft/entity/Entity/posZ[3601,3605]::posZ->field_70161_v
-[method, java/lang/System/currentTimeMillis, ()J]
-Rename field net/minecraft/client/Minecraft/thePlayer[3829,3838]::thePlayer->field_71439_g
-Rename field net/minecraft/entity/Entity/posX[3843,3847]::posX->field_70165_t
-Rename field net/minecraft/client/Minecraft/thePlayer[3891,3900]::thePlayer->field_71439_g
-Rename field net/minecraft/entity/Entity/posZ[3905,3909]::posZ->field_70161_v
-[method, java/lang/Math/abs, (D)D]
-[method, java/lang/Math/abs, (D)D]
 [method, com/example/keyloop/keyloop/releaseCurrentKey, ()V]
 [method, com/example/keyloop/keyloop/nextState, ()V]
 [method, com/example/keyloop/keyloop/holdCurrentKey, ()V]
-Rename field net/minecraft/client/Minecraft/thePlayer[4138,4147]::thePlayer->field_71439_g
-Rename field net/minecraft/entity/Entity/posX[4152,4156]::posX->field_70165_t
-Rename field net/minecraft/client/Minecraft/thePlayer[4194,4203]::thePlayer->field_71439_g
-Rename field net/minecraft/entity/Entity/posZ[4208,4212]::posZ->field_70161_v
+Rename field net/minecraft/client/Minecraft/thePlayer[3601,3610]::thePlayer->field_71439_g
+Rename field net/minecraft/entity/Entity/posX[3615,3619]::posX->field_70165_t
+Rename field net/minecraft/client/Minecraft/thePlayer[3663,3672]::thePlayer->field_71439_g
+Rename field net/minecraft/entity/Entity/posZ[3677,3681]::posZ->field_70161_v
+[method, java/lang/Math/sqrt, (D)D]
+[method, com/example/keyloop/keyloop/releaseCurrentKey, ()V]
+[method, com/example/keyloop/keyloop/nextState, ()V]
+[method, com/example/keyloop/keyloop/holdCurrentKey, ()V]
+Rename field net/minecraft/client/Minecraft/thePlayer[3998,4007]::thePlayer->field_71439_g
+Rename field net/minecraft/entity/Entity/posX[4012,4016]::posX->field_70165_t
+Rename field net/minecraft/client/Minecraft/thePlayer[4054,4063]::thePlayer->field_71439_g
+Rename field net/minecraft/entity/Entity/posZ[4068,4072]::posZ->field_70161_v
 [method, com/example/keyloop/keyloop/onChatMessage, (Lnet/minecraftforge/client/event/ClientChatReceivedEvent;)V]
 No rename for class net/minecraftforge/client/event/ClientChatReceivedEvent
 No rename for field net/minecraftforge/client/event/ClientChatReceivedEvent/message
-Rename method net/minecraft/util/IChatComponent/getUnformattedText ()Ljava/lang/String;[4547,4565]::getUnformattedText->func_150260_c
+Rename method net/minecraft/util/IChatComponent/getUnformattedText ()Ljava/lang/String;[4407,4425]::getUnformattedText->func_150260_c
 [method, java/lang/String/toLowerCase, ()Ljava/lang/String;]
 [method, java/lang/String/contains, (Ljava/lang/CharSequence;)Z]
 [method, java/lang/String/contains, (Ljava/lang/CharSequence;)Z]
@@ -33547,60 +33551,79 @@ Rename method net/minecraft/util/IChatComponent/getUnformattedText ()Ljava/lang/
 [method, java/lang/String/contains, (Ljava/lang/CharSequence;)Z]
 [method, java/lang/String/contains, (Ljava/lang/CharSequence;)Z]
 [method, com/example/keyloop/keyloop/releaseAllKeys, ()V]
-Rename field net/minecraft/client/Minecraft/thePlayer[4812,4821]::thePlayer->field_71439_g
-Rename method net/minecraft/command/ICommandSender/addChatMessage (Lnet/minecraft/util/IChatComponent;)V[4826,4840]::addChatMessage->func_145747_a
-Rename class net/minecraft/util/ChatComponentText[4844,4861]::ChatComponentText->ChatComponentText
+Rename field net/minecraft/client/Minecraft/thePlayer[4672,4681]::thePlayer->field_71439_g
+Rename method net/minecraft/command/ICommandSender/addChatMessage (Lnet/minecraft/util/IChatComponent;)V[4686,4700]::addChatMessage->func_145747_a
+Rename class net/minecraft/util/ChatComponentText[4704,4721]::ChatComponentText->ChatComponentText
 [method, com/example/keyloop/keyloop/holdCurrentKey, ()V]
-Rename class net/minecraft/client/settings/KeyBinding[4976,4986]::KeyBinding->KeyBinding
+Rename class net/minecraft/client/settings/KeyBinding[4836,4846]::KeyBinding->KeyBinding
 [method, com/example/keyloop/keyloop/getCurrentKeyBinding, ()Lnet/minecraft/client/settings/KeyBinding;]
-Rename class net/minecraft/client/settings/KeyBinding[5042,5052]::KeyBinding->KeyBinding
-Rename method net/minecraft/client/settings/KeyBinding/setKeyBindState (IZ)V[5053,5068]::setKeyBindState->func_74510_a
-Rename method net/minecraft/client/settings/KeyBinding/getKeyCode ()I[5070,5080]::getKeyCode->func_151463_i
-[method, com/example/keyloop/keyloop/releaseCurrentKey, ()V]
-Rename class net/minecraft/client/settings/KeyBinding[5148,5158]::KeyBinding->KeyBinding
-[method, com/example/keyloop/keyloop/getCurrentKeyBinding, ()Lnet/minecraft/client/settings/KeyBinding;]
-Rename class net/minecraft/client/settings/KeyBinding[5214,5224]::KeyBinding->KeyBinding
-Rename method net/minecraft/client/settings/KeyBinding/setKeyBindState (IZ)V[5225,5240]::setKeyBindState->func_74510_a
+Rename class net/minecraft/client/settings/KeyBinding[4916,4926]::KeyBinding->KeyBinding
+Rename method net/minecraft/client/settings/KeyBinding/setKeyBindState (IZ)V[4927,4942]::setKeyBindState->func_74510_a
+Rename method net/minecraft/client/settings/KeyBinding/getKeyCode ()I[4944,4954]::getKeyCode->func_151463_i
+Rename class net/minecraft/client/settings/KeyBinding[5038,5048]::KeyBinding->KeyBinding
+Rename method net/minecraft/client/settings/KeyBinding/setKeyBindState (IZ)V[5049,5064]::setKeyBindState->func_74510_a
+Rename field net/minecraft/client/Minecraft/gameSettings[5065,5077]::gameSettings->field_71474_y
+Rename field net/minecraft/client/settings/GameSettings/keyBindLeft[5079,5090]::keyBindLeft->field_74370_x
+Rename method net/minecraft/client/settings/KeyBinding/getKeyCode ()I[5093,5103]::getKeyCode->func_151463_i
+Rename class net/minecraft/client/settings/KeyBinding[5187,5197]::KeyBinding->KeyBinding
+Rename method net/minecraft/client/settings/KeyBinding/setKeyBindState (IZ)V[5198,5213]::setKeyBindState->func_74510_a
+Rename field net/minecraft/client/Minecraft/gameSettings[5214,5226]::gameSettings->field_71474_y
+Rename field net/minecraft/client/settings/GameSettings/keyBindForward[5228,5242]::keyBindForward->field_74351_w
 Rename method net/minecraft/client/settings/KeyBinding/getKeyCode ()I[5242,5252]::getKeyCode->func_151463_i
-[method, com/example/keyloop/keyloop/releaseAllKeys, ()V]
-Rename class net/minecraft/client/settings/KeyBinding[5318,5328]::KeyBinding->KeyBinding
-Rename method net/minecraft/client/settings/KeyBinding/setKeyBindState (IZ)V[5329,5344]::setKeyBindState->func_74510_a
-Rename field net/minecraft/client/Minecraft/gameSettings[5345,5357]::gameSettings->field_71474_y
-Rename field net/minecraft/client/settings/GameSettings/keyBindLeft[5359,5370]::keyBindLeft->field_74370_x
-Rename method net/minecraft/client/settings/KeyBinding/getKeyCode ()I[5373,5383]::getKeyCode->func_151463_i
-Rename class net/minecraft/client/settings/KeyBinding[5406,5416]::KeyBinding->KeyBinding
-Rename method net/minecraft/client/settings/KeyBinding/setKeyBindState (IZ)V[5417,5432]::setKeyBindState->func_74510_a
-Rename field net/minecraft/client/Minecraft/gameSettings[5433,5445]::gameSettings->field_71474_y
-Rename field net/minecraft/client/settings/GameSettings/keyBindForward[5447,5461]::keyBindForward->field_74351_w
-Rename method net/minecraft/client/settings/KeyBinding/getKeyCode ()I[5461,5471]::getKeyCode->func_151463_i
-Rename class net/minecraft/client/settings/KeyBinding[5494,5504]::KeyBinding->KeyBinding
-Rename method net/minecraft/client/settings/KeyBinding/setKeyBindState (IZ)V[5505,5520]::setKeyBindState->func_74510_a
-Rename field net/minecraft/client/Minecraft/gameSettings[5521,5533]::gameSettings->field_71474_y
-Rename field net/minecraft/client/settings/GameSettings/keyBindRight[5535,5547]::keyBindRight->field_74366_z
-Rename method net/minecraft/client/settings/KeyBinding/getKeyCode ()I[5549,5559]::getKeyCode->func_151463_i
-Rename class net/minecraft/client/settings/KeyBinding[5582,5592]::KeyBinding->KeyBinding
-Rename method net/minecraft/client/settings/KeyBinding/setKeyBindState (IZ)V[5593,5608]::setKeyBindState->func_74510_a
-Rename field net/minecraft/client/Minecraft/gameSettings[5609,5621]::gameSettings->field_71474_y
-Rename field net/minecraft/client/settings/GameSettings/keyBindBack[5623,5634]::keyBindBack->field_74368_y
-Rename method net/minecraft/client/settings/KeyBinding/getKeyCode ()I[5637,5647]::getKeyCode->func_151463_i
-[method, com/example/keyloop/keyloop/nextState, ()V]
-[method, java/lang/System/currentTimeMillis, ()J]
-Rename field net/minecraft/client/Minecraft/thePlayer[6601,6610]::thePlayer->field_71439_g
-Rename field net/minecraft/entity/Entity/rotationYaw[6615,6626]::rotationYaw->field_70177_z
-Rename field net/minecraft/client/Minecraft/thePlayer[6653,6662]::thePlayer->field_71439_g
-Rename field net/minecraft/entity/Entity/rotationPitch[6667,6680]::rotationPitch->field_70125_A
-Rename class net/minecraft/client/settings/KeyBinding[6715,6725]::KeyBinding->KeyBinding
+[method, com/example/keyloop/keyloop/releaseCurrentKey, ()V]
+Rename class net/minecraft/client/settings/KeyBinding[5330,5340]::KeyBinding->KeyBinding
 [method, com/example/keyloop/keyloop/getCurrentKeyBinding, ()Lnet/minecraft/client/settings/KeyBinding;]
-Rename field net/minecraft/client/Minecraft/gameSettings[6818,6830]::gameSettings->field_71474_y
-Rename field net/minecraft/client/settings/GameSettings/keyBindLeft[6832,6843]::keyBindLeft->field_74370_x
-Rename field net/minecraft/client/Minecraft/gameSettings[6882,6894]::gameSettings->field_71474_y
-Rename field net/minecraft/client/settings/GameSettings/keyBindForward[6896,6910]::keyBindForward->field_74351_w
-Rename field net/minecraft/client/Minecraft/gameSettings[6947,6959]::gameSettings->field_71474_y
-Rename field net/minecraft/client/settings/GameSettings/keyBindForward[6961,6975]::keyBindForward->field_74351_w
-Rename field net/minecraft/client/Minecraft/gameSettings[7011,7023]::gameSettings->field_71474_y
-Rename field net/minecraft/client/settings/GameSettings/keyBindRight[7025,7037]::keyBindRight->field_74366_z
-Rename field net/minecraft/client/Minecraft/gameSettings[7075,7087]::gameSettings->field_71474_y
-Rename field net/minecraft/client/settings/GameSettings/keyBindBack[7089,7100]::keyBindBack->field_74368_y
+Rename class net/minecraft/client/settings/KeyBinding[5410,5420]::KeyBinding->KeyBinding
+Rename method net/minecraft/client/settings/KeyBinding/setKeyBindState (IZ)V[5421,5436]::setKeyBindState->func_74510_a
+Rename method net/minecraft/client/settings/KeyBinding/getKeyCode ()I[5438,5448]::getKeyCode->func_151463_i
+Rename class net/minecraft/client/settings/KeyBinding[5533,5543]::KeyBinding->KeyBinding
+Rename method net/minecraft/client/settings/KeyBinding/setKeyBindState (IZ)V[5544,5559]::setKeyBindState->func_74510_a
+Rename field net/minecraft/client/Minecraft/gameSettings[5560,5572]::gameSettings->field_71474_y
+Rename field net/minecraft/client/settings/GameSettings/keyBindLeft[5574,5585]::keyBindLeft->field_74370_x
+Rename method net/minecraft/client/settings/KeyBinding/getKeyCode ()I[5588,5598]::getKeyCode->func_151463_i
+Rename class net/minecraft/client/settings/KeyBinding[5683,5693]::KeyBinding->KeyBinding
+Rename method net/minecraft/client/settings/KeyBinding/setKeyBindState (IZ)V[5694,5709]::setKeyBindState->func_74510_a
+Rename field net/minecraft/client/Minecraft/gameSettings[5710,5722]::gameSettings->field_71474_y
+Rename field net/minecraft/client/settings/GameSettings/keyBindForward[5724,5738]::keyBindForward->field_74351_w
+Rename method net/minecraft/client/settings/KeyBinding/getKeyCode ()I[5738,5748]::getKeyCode->func_151463_i
+[method, com/example/keyloop/keyloop/releaseAllKeys, ()V]
+Rename class net/minecraft/client/settings/KeyBinding[5824,5834]::KeyBinding->KeyBinding
+Rename method net/minecraft/client/settings/KeyBinding/setKeyBindState (IZ)V[5835,5850]::setKeyBindState->func_74510_a
+Rename field net/minecraft/client/Minecraft/gameSettings[5851,5863]::gameSettings->field_71474_y
+Rename field net/minecraft/client/settings/GameSettings/keyBindLeft[5865,5876]::keyBindLeft->field_74370_x
+Rename method net/minecraft/client/settings/KeyBinding/getKeyCode ()I[5879,5889]::getKeyCode->func_151463_i
+Rename class net/minecraft/client/settings/KeyBinding[5912,5922]::KeyBinding->KeyBinding
+Rename method net/minecraft/client/settings/KeyBinding/setKeyBindState (IZ)V[5923,5938]::setKeyBindState->func_74510_a
+Rename field net/minecraft/client/Minecraft/gameSettings[5939,5951]::gameSettings->field_71474_y
+Rename field net/minecraft/client/settings/GameSettings/keyBindForward[5953,5967]::keyBindForward->field_74351_w
+Rename method net/minecraft/client/settings/KeyBinding/getKeyCode ()I[5967,5977]::getKeyCode->func_151463_i
+Rename class net/minecraft/client/settings/KeyBinding[6000,6010]::KeyBinding->KeyBinding
+Rename method net/minecraft/client/settings/KeyBinding/setKeyBindState (IZ)V[6011,6026]::setKeyBindState->func_74510_a
+Rename field net/minecraft/client/Minecraft/gameSettings[6027,6039]::gameSettings->field_71474_y
+Rename field net/minecraft/client/settings/GameSettings/keyBindRight[6041,6053]::keyBindRight->field_74366_z
+Rename method net/minecraft/client/settings/KeyBinding/getKeyCode ()I[6055,6065]::getKeyCode->func_151463_i
+Rename class net/minecraft/client/settings/KeyBinding[6088,6098]::KeyBinding->KeyBinding
+Rename method net/minecraft/client/settings/KeyBinding/setKeyBindState (IZ)V[6099,6114]::setKeyBindState->func_74510_a
+Rename field net/minecraft/client/Minecraft/gameSettings[6115,6127]::gameSettings->field_71474_y
+Rename field net/minecraft/client/settings/GameSettings/keyBindBack[6129,6140]::keyBindBack->field_74368_y
+Rename method net/minecraft/client/settings/KeyBinding/getKeyCode ()I[6143,6153]::getKeyCode->func_151463_i
+[method, com/example/keyloop/keyloop/nextState, ()V]
+Rename field net/minecraft/client/Minecraft/thePlayer[6949,6958]::thePlayer->field_71439_g
+Rename field net/minecraft/entity/Entity/rotationYaw[6963,6974]::rotationYaw->field_70177_z
+Rename field net/minecraft/client/Minecraft/thePlayer[7001,7010]::thePlayer->field_71439_g
+Rename field net/minecraft/entity/Entity/rotationPitch[7015,7028]::rotationPitch->field_70125_A
+Rename class net/minecraft/client/settings/KeyBinding[7063,7073]::KeyBinding->KeyBinding
+[method, com/example/keyloop/keyloop/getCurrentKeyBinding, ()Lnet/minecraft/client/settings/KeyBinding;]
+Rename field net/minecraft/client/Minecraft/gameSettings[7166,7178]::gameSettings->field_71474_y
+Rename field net/minecraft/client/settings/GameSettings/keyBindLeft[7180,7191]::keyBindLeft->field_74370_x
+Rename field net/minecraft/client/Minecraft/gameSettings[7230,7242]::gameSettings->field_71474_y
+Rename field net/minecraft/client/settings/GameSettings/keyBindForward[7244,7258]::keyBindForward->field_74351_w
+Rename field net/minecraft/client/Minecraft/gameSettings[7295,7307]::gameSettings->field_71474_y
+Rename field net/minecraft/client/settings/GameSettings/keyBindForward[7309,7323]::keyBindForward->field_74351_w
+Rename field net/minecraft/client/Minecraft/gameSettings[7359,7371]::gameSettings->field_71474_y
+Rename field net/minecraft/client/settings/GameSettings/keyBindRight[7373,7385]::keyBindRight->field_74366_z
+Rename field net/minecraft/client/Minecraft/gameSettings[7423,7435]::gameSettings->field_71474_y
+Rename field net/minecraft/client/settings/GameSettings/keyBindBack[7437,7448]::keyBindBack->field_74368_y
 [method, com/example/keyloop/keyloop/setTargetLook, (FF)V]
 Import: net.minecraft.client.Minecraft
 Import: net.minecraft.client.settings.KeyBinding

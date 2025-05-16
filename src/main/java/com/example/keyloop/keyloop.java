@@ -18,21 +18,20 @@ public class keyloop {
 
     private final Minecraft mc = Minecraft.getMinecraft();
     private boolean enabled = false;
-    private boolean wasshiftDown = false;
+    private boolean WasShiftDown = false;
 
     private long lastMoveCheckTime = 0;
     private double lastX = 0;
     private double lastZ = 0;
     private int d_counter = 0;
-
-    private long awStartTime = 0;
+    private int sTickCounter = 0;
 
     private LoopState currentState = LoopState.HOLD_A;
     private float targetYaw;
     private float targetPitch;
 
     private enum LoopState {
-        HOLD_A, HOLD_W, HOLD_D, HOLD_W2, HOLD_S, HOLD_AW
+        HOLD_A, HOLD_W, HOLD_D, HOLD_W2, HOLD_S
     }
 
     @Mod.EventHandler
@@ -59,7 +58,7 @@ public class keyloop {
         }
 
         boolean isKeyDown = Keyboard.isKeyDown(Keyboard.KEY_RSHIFT);
-        if (isKeyDown && !wasshiftDown) {
+        if (isKeyDown && !WasShiftDown) {
             enabled = !enabled;
             if (!enabled) {
                 releaseAllKeys();
@@ -73,7 +72,7 @@ public class keyloop {
                 lastMoveCheckTime = System.currentTimeMillis();
             }
         }
-        wasshiftDown = isKeyDown;
+        WasShiftDown = isKeyDown;
 
         if (!enabled) return;
 
@@ -86,29 +85,29 @@ public class keyloop {
             }
         }
 
-        // HOLD_AW durumunu ayrı işle
-        if (currentState == LoopState.HOLD_AW) {
-            KeyBinding.setKeyBindState(mc.gameSettings.keyBindLeft.getKeyCode(), true);
-            KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), true);
-
-            long now = System.currentTimeMillis();
-            if (now - awStartTime >= 1000) {
-                releaseAllKeys();
-                nextState();
-                holdCurrentKey();
-                lastX = mc.thePlayer.posX;
-                lastZ = mc.thePlayer.posZ;
-                lastMoveCheckTime = now;
-            }
-            return;
-        }
-
         long now = System.currentTimeMillis();
-        if (now - lastMoveCheckTime >= 1000) {
+        if (now - lastMoveCheckTime >= 400) {
+            if (currentState == LoopState.HOLD_S) {
+                sTickCounter++;
+                if (sTickCounter >= 70) {
+                    releaseCurrentKey();
+                    nextState();
+                    holdCurrentKey();
+                    sTickCounter = 0;
+                    lastMoveCheckTime = now;
+                }
+                return;
+            }
+            else {
+                sTickCounter = 0;
+            }
             double currentX = mc.thePlayer.posX;
             double currentZ = mc.thePlayer.posZ;
+            double dx = currentX - lastX;
+            double dz = currentZ - lastZ;
+            double distance = Math.sqrt(dx * dx + dz * dz);
 
-            if (Math.abs(currentX - lastX) < 0.01 && Math.abs(currentZ - lastZ) < 0.01) {
+            if (distance < 1.6) {
                 releaseCurrentKey();
                 nextState();
                 holdCurrentKey();
@@ -135,12 +134,28 @@ public class keyloop {
 
     private void holdCurrentKey() {
         KeyBinding key = getCurrentKeyBinding();
-        if (key != null) KeyBinding.setKeyBindState(key.getKeyCode(), true);
-    }
+        if (key != null) {
+            KeyBinding.setKeyBindState(key.getKeyCode(), true);
+        }
+        if (currentState == LoopState.HOLD_S) {
+            KeyBinding.setKeyBindState(mc.gameSettings.keyBindLeft.getKeyCode(), true);
+        }
+        if (currentState != LoopState.HOLD_S) {
+            KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), true);
+        }
 
+    }
     private void releaseCurrentKey() {
         KeyBinding key = getCurrentKeyBinding();
-        if (key != null) KeyBinding.setKeyBindState(key.getKeyCode(), false);
+        if (key != null) {
+            KeyBinding.setKeyBindState(key.getKeyCode(), false);
+        }
+        if (currentState == LoopState.HOLD_S) {
+            KeyBinding.setKeyBindState(mc.gameSettings.keyBindLeft.getKeyCode(), false);
+        }
+        if (currentState != LoopState.HOLD_S) {
+            KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), false);
+        }
     }
 
     private void releaseAllKeys() {
@@ -171,10 +186,6 @@ public class keyloop {
                 currentState = LoopState.HOLD_A;
                 break;
             case HOLD_S:
-                currentState = LoopState.HOLD_AW;
-                awStartTime = System.currentTimeMillis();
-                return;
-            case HOLD_AW:
                 currentState = LoopState.HOLD_A;
                 break;
         }
