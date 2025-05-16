@@ -28,8 +28,8 @@ public class YawPitchGui extends GuiScreen {
 
         yawField.setFocused(true);
         pitchField.setFocused(false);
-        yawField.setText("");
-        pitchField.setText("");
+        yawField.setText(parent.getTargetYaw() == 0f ? "" : String.valueOf(parent.getTargetYaw()));
+        pitchField.setText(parent.getTargetPitch() == 0f ? "" : String.valueOf(parent.getTargetPitch()));
 
         buttonList.add(confirmButton = new GuiButton(2, centerX - 30, centerY + 40, 60, 20, "Confirm"));
     }
@@ -41,6 +41,7 @@ public class YawPitchGui extends GuiScreen {
                 float yaw = Float.parseFloat(yawField.getText());
                 float pitch = Float.parseFloat(pitchField.getText());
                 parent.setTargetLook(yaw, pitch);
+                parent.saveConfig();
                 mc.displayGuiScreen(null);
             } catch (NumberFormatException e) {
                 errmsg = "Enter a valid number";

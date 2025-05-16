@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
+import java.io.*;
 
 @Mod(modid = "keyloopmod", name = "Key Loop Mod", version = "1.0", clientSideOnly = true)
 public class keyloop {
@@ -19,7 +20,7 @@ public class keyloop {
     private final Minecraft mc = Minecraft.getMinecraft();
     private boolean enabled = false;
     private boolean WasShiftDown = false;
-
+    private static final File configFile = new File(Minecraft.getMinecraft().mcDataDir, "keyloop_config.txt");
     private long lastMoveCheckTime = 0;
     private double lastX = 0;
     private double lastZ = 0;
@@ -37,6 +38,7 @@ public class keyloop {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(this);
+        loadConfig();
     }
 
     @SubscribeEvent
@@ -208,5 +210,35 @@ public class keyloop {
     public void setTargetLook(float yaw, float pitch) {
         this.targetYaw = yaw;
         this.targetPitch = pitch;
+    }
+    public float getTargetYaw() {
+        return targetYaw;
+    }
+
+    public float getTargetPitch() {
+        return targetPitch;
+    }
+    public void saveConfig() {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(configFile));
+            writer.write(Float.toString(this.targetYaw));
+            writer.newLine();
+            writer.write(Float.toString(this.targetPitch));
+            writer.close();
+        } catch (Exception e) {
+            System.out.println("Failed to save config: " + e.getMessage());
+        }
+    }
+    private void loadConfig() {
+        if (!configFile.exists()) return;
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(configFile));
+            this.targetYaw = Float.parseFloat(reader.readLine());
+            this.targetPitch = Float.parseFloat(reader.readLine());
+            reader.close();
+        } catch (Exception e) {
+            System.out.println("Failed to load config: " + e.getMessage());
+        }
     }
 }
