@@ -26,6 +26,9 @@ public class keyloop {
     private double lastZ = 0;
     private int d_counter = 0;
     private int sTickCounter = 0;
+    private boolean tempWActive = false;
+    private long tempWStartTime = 0;
+
 
     private LoopState currentState = LoopState.HOLD_A;
     private float targetYaw;
@@ -51,7 +54,6 @@ public class keyloop {
 
     @SubscribeEvent
     public void onClientTick(TickEvent.ClientTickEvent event) {
-        if (event.phase != TickEvent.Phase.END) return;
         if (mc.thePlayer == null || mc.currentScreen != null) return;
 
         boolean GuiOpen = Keyboard.isKeyDown(Keyboard.KEY_O);
@@ -77,6 +79,17 @@ public class keyloop {
         WasShiftDown = isKeyDown;
 
         if (!enabled) return;
+
+        if (tempWActive) {
+            long now = System.currentTimeMillis();
+            if (now - tempWStartTime < 500) {
+                KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), true);
+            } else {
+                KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), false);
+                tempWActive = false;
+            }
+        }
+
 
         if (!Mouse.isButtonDown(0)) {
             Mouse.poll();
@@ -139,24 +152,11 @@ public class keyloop {
         if (key != null) {
             KeyBinding.setKeyBindState(key.getKeyCode(), true);
         }
-        if (currentState == LoopState.HOLD_S) {
-            KeyBinding.setKeyBindState(mc.gameSettings.keyBindLeft.getKeyCode(), true);
-        }
-        if (currentState != LoopState.HOLD_S) {
-            KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), true);
-        }
-
     }
     private void releaseCurrentKey() {
         KeyBinding key = getCurrentKeyBinding();
         if (key != null) {
             KeyBinding.setKeyBindState(key.getKeyCode(), false);
-        }
-        if (currentState == LoopState.HOLD_S) {
-            KeyBinding.setKeyBindState(mc.gameSettings.keyBindLeft.getKeyCode(), false);
-        }
-        if (currentState != LoopState.HOLD_S) {
-            KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), false);
         }
     }
 
@@ -189,6 +189,8 @@ public class keyloop {
                 break;
             case HOLD_S:
                 currentState = LoopState.HOLD_A;
+                tempWActive = true;
+                tempWStartTime = System.currentTimeMillis();
                 break;
         }
 
